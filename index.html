@@ -10,6 +10,24 @@
 
   gtag('config', 'AW-969473991');
 </script>
+
+  <!-- Event snippet for Clique WhatsApp - Consulta Presencial conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-969473991/RRQbCPCFwoAdEMf_o84D',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dra. Dayane Vieira Ferreira | Pediatra em Joinville</title>
 <meta name="description" content="Consulta pediátrica particular em Joinville para bebês, crianças e adolescentes. Dra. Dayane Vieira Ferreira — CRM-SC 33696 | RQE 22827.">
@@ -32,4 +50,12 @@
 <footer class="footer"><div class="wrap">Dra. Dayane Vieira Ferreira • Médica Pediatra • CRM-SC 33696 | RQE 22827<br>Informações desta página não substituem avaliação médica. Em situações de urgência ou emergência, procure um serviço de atendimento adequado.</div></footer>
 <div class="mobilebar"><a class="btn conversion-presencial" href="https://wa.me/554730710191?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20consulta%20pedi%C3%A1trica%20presencial%20no%20Consult%C3%B3rio%20Criarinf%C3%A2ncias." target="_blank" rel="noopener">Agendar no consultório</a></div>
 <!-- Rastreamento preparado por classes: conversion-presencial, conversion-online e conversion-domiciliar. Inserir Google tag/Google Ads após criar as ações de conversão. -->
+  <script>
+document.querySelectorAll('.conversion-presencial').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
+    gtag_report_conversion(this.href);
+  });
+});
+</script>
 </body></html>
