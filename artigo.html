@@ -763,6 +763,53 @@
       );
     }
 
+    const ehArtigoQuatroSeis =
+      String(data.titulo || '')
+        .trim()
+        .toLowerCase() ===
+      'desenvolvimento do bebê: dos 4 aos 6 meses';
+
+    if (ehArtigoQuatroSeis) {
+
+      const imagemAlcancar = `
+        <figure class="article-illustration">
+          <img
+            src="bebe-alcancando-brinquedo.webp"
+            alt="Bebê tentando alcançar um brinquedo apropriado para a idade com um adulto por perto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Objetos apropriados para a idade podem incentivar o bebê a olhar, alcançar e explorar.
+          </figcaption>
+        </figure>
+      `;
+
+      const imagemRolar = `
+        <figure class="article-illustration">
+          <img
+            src="bebe-aprendendo-rolar.webp"
+            alt="Bebê praticando movimentos para rolar em um local seguro com supervisão de um adulto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Em um espaço seguro e supervisionado, o bebê pode experimentar movimentos e novas posições.
+          </figcaption>
+        </figure>
+      `;
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Como estimular o desenvolvimento\?\s*<\/h2>)/i,
+        '$1' + imagemAlcancar
+      );
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Incentivando os movimentos\s*<\/h2>)/i,
+        '$1' + imagemRolar
+      );
+    }
+
     articleBody.innerHTML =
       conteudoFormatado;
 
