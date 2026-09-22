@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://pizpvlksxubvlkmyfvbh.supabase.co" crossorigin>
-  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8u_IS2q0UBomIY8gkueaEdYWs62gL1F3DvOacM7HPBNEHEuHwucLRhFmg1eIwDeg_YN2NlR6UiStXPQfenySN9KKV7KKcCVFQtfyrMyV0RTr2btGfdKv_jEtsipJmhuroPkEHw2YN45MUkMpUxWM-5LsT0jOlKyOD0Ms6zLOTR0kHxkuhiEX4pZsr7vJFKRrSc8dnGtluQj37vn6dNKjJVfR5cTBn3RxLb1lcY841pmK-XbFs9gO_uTd74EOklVTkin_KLeLMX7R81p9yGdk08qdNHXumIED5JENbgFm2iiGLhQi4-n7fZ8AFmLBu8Yz_qusBG5Ozr1eFpAdEMiI6g" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMGJjNGM4MjBlOWQ3N2E1NGMwMzVkODM2YyZmbj1hcnRpZ29fdGVzdGVfc2VtX2ltYWdlbnMuaHRtbCZjZD1hdHRhY2htZW50JnRzPTQ5NzI1NCZwPWZzJmNpZD0xJnNpZz1kMDc4ZTgyOTdhNjBmYzQzMzhkNDU4ZjIyMjVhYmYzN2Q2YmZhMzRmZmYwYWE4NDQ2NjgwYWEzOTQ4NmExNDNmJnY9MA"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=eCpqFu9QcHcWfCxaSr7tGb66bON7uUsjsaMhAV9L3nRRSMv7QoJeU38R-8CtfDse2oCjx_-8f9g-mdjHP6nVywdnJVK3OmNqSB9OtL5JiULns6fiAc5jtskgpt6-DKOXmic2fF7RhTr5RXKvARjCGHzELsrlvvKClFj_awf3AkpCUvxqePg52Znhxo_7vHbHrYwDQsykKDLBzh7ITye4yzXER2JOmpMUOtO_Ca850_pfmXg_o-7uTW-r7YHYNxRvEreZmObLjnHy9e_xUq73BpDol9-uyoaweaNl-uud7EkdnQha6Uh4JWzqxTAaspBZ1wINH4pdg758rp6QZMBO2Q" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDk1YTA4MjBlYjdlZWQ0OWRjMGZkNzJjMyZmbj1hcnRpZ29fbW9iaWxlX290aW1pemFkby5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk3MjU1JnA9ZnMmY2lkPTEmc2lnPTY0NmVjMWYyOTg3MmRhNzI4NmZmMjk4NWEzYTc5NTBlNWZhZmEwOTk3MDkzN2RlM2MzZWEyOWM0NmU1ZjdjODcmdj0w"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
 
@@ -100,6 +100,8 @@
     }
 
     .article-body {
+      content-visibility: auto;
+      contain-intrinsic-size: 900px;
       background: #ffffff;
       border: 1px solid #ebe6e2;
       border-radius: 22px;
@@ -596,97 +598,48 @@
 
   async function carregarArtigo() {
 
-    /*
-     * PRIMEIRO:
-     * VERIFICAR LOGIN
-     */
-
-    const { data: sessionData } =
-      await supabaseClient.auth
-        .getSession();
-
-
-    if (!sessionData.session) {
-
-      window.location.href =
-        'pacientes.html';
-
-      return;
-
-    }
-
-
-    /*
-     * PEGAR ID DA URL
-     *
-     * Exemplo:
-     * artigo.html?id=1
-     */
-
-    const parametros =
-      new URLSearchParams(
-        window.location.search
-      );
-
-
-    const id =
-      parametros.get('id');
-
+    const parametros = new URLSearchParams(window.location.search);
+    const id = parametros.get('id');
 
     if (!id) {
-
       mostrarErro();
-
       return;
-
     }
 
-
     /*
-     * BUSCAR ARTIGO
+     * Sessão e conteúdo são solicitados em paralelo.
+     * A proteção real permanece no RLS do Supabase.
      */
+    const sessionPromise = supabaseClient.auth.getSession();
 
-    const {
-      data,
-      error
-    } =
-      await supabaseClient
+    const artigoPromise = supabaseClient
+      .from('conteudos')
+      .select(`
+        id,
+        categoria,
+        titulo,
+        faixa_etaria,
+        resumo,
+        conteudo
+      `)
+      .eq('id', id)
+      .eq('publicado', true)
+      .single();
 
-        .from('conteudos')
+    const [
+      { data: sessionData },
+      { data, error }
+    ] = await Promise.all([sessionPromise, artigoPromise]);
 
-        .select(`
-          id,
-          categoria,
-          titulo,
-          faixa_etaria,
-          resumo,
-          conteudo
-        `)
-
-        .eq(
-          'id',
-          id
-        )
-
-        .eq(
-          'publicado',
-          true
-        )
-
-        .single();
-
+    if (!sessionData.session) {
+      window.location.replace('pacientes.html');
+      return;
+    }
 
     if (error || !data) {
-
-      console.error(
-        'Erro ao carregar artigo:',
-        error
-      );
-
+      console.error('Erro ao carregar artigo:', error);
       mostrarErro();
-
       return;
-
     }
 
 
