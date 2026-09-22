@@ -146,7 +146,7 @@
     }
 
     .article-illustration {
-      margin: 8px 0 30px;
+      margin: 24px 0 30px;
     }
 
     .article-illustration img {
@@ -710,7 +710,7 @@
       data.resumo || '';
 
 
-    const conteudoFormatado =
+    let conteudoFormatado =
       formatarConteudo(
         data.conteudo
       );
@@ -721,24 +721,50 @@
         .toLowerCase() ===
       'desenvolvimento do bebê: do nascimento aos 3 meses';
 
-    const imagemTeste = ehArtigoTeste
-      ? `
+    if (ehArtigoTeste) {
+
+      const imagemInteracao = `
         <figure class="article-illustration">
           <img
-            src="tummy-time.webp"
-            alt="Bebê acordado realizando tummy time sob supervisão de um adulto"
+            src="interacao-bebe.webp"
+            alt="Cuidadora interagindo com o bebê por meio do olhar e do sorriso"
             loading="lazy"
             decoding="async"
           >
           <figcaption>
-            Tummy time: sempre com o bebê acordado e sob supervisão.
+            Conversar, sorrir e responder às expressões do bebê fazem parte das interações do dia a dia.
           </figcaption>
         </figure>
-      `
-      : '';
+      `;
+
+      const imagemTummyTime = `
+        <figure class="article-illustration">
+          <img
+            src="tummy-time.webp"
+            alt="Bebê acordado realizando tempo de bruços sob supervisão de um adulto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Tempo de bruços: sempre com o bebê acordado e sob supervisão.
+          </figcaption>
+        </figure>
+      `;
+
+      /* Insere cada imagem logo após o título da seção correspondente. */
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Como estimular o desenvolvimento\?\s*<\/h2>)/i,
+        '$1' + imagemInteracao
+      );
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Tempo de bruços\s*<\/h2>)/i,
+        '$1' + imagemTummyTime
+      );
+    }
 
     articleBody.innerHTML =
-      imagemTeste + conteudoFormatado;
+      conteudoFormatado;
 
 
     loading.style.display =
