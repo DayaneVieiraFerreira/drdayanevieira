@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://pizpvlksxubvlkmyfvbh.supabase.co" crossorigin>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=q8k0vB-tvr8643YlI6B8LuVhAOXs31LJRCSWGcWx8jFq3yHB19oebiDGhrmFC_4JO8fo3hNTiwyXSbDy2sRgkvE_lUB6hyTo7tCBANW9i_ceskD94rjnGEsleZ_eIt1pr2yBRAivWMBtbmBfAQBTNBQaqemmuOr5gBNJNE-egiJ2I9hyonjrAMNPVy82Ng1ik4xRNrCpv-_k7O06bmvcqK_30KzfwRQUedrSAA_0nJntYZGzOK7-H5P_wyG5UL4pBkJ0Is7tJQ2gCf-vGOCZ8rBK3b0ZlNqSiQQQIT1nSrj86_NDoT5oUZRgiZE7MvhYhwNXR0O2LOdZGhC413x_0A" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMGI4YzQ4MjBlOWUxZmE0MGI1OTQ5MWI5NSZmbj1wYWNpZW50ZXNfY2F0ZWdvcmlhX290aW1pemFkYS5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk3MjU0JnA9ZnMmY2lkPTEmc2lnPWFhMjUxNDYyNzU1YTQ4ZWE0MjQyYWFlM2NhMmVlNDIxOGFkOTgwOTlkM2FjNmYwMjU3ZmM3NzcwZjcwNDVkYzYmdj0w"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     * {
@@ -685,9 +685,22 @@
     return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
   }
 
-  function contarConteudos(categoria) {
-    const c = normalizarTexto(categoria);
-    return todosConteudos.filter(item => normalizarTexto(item.categoria) === c).length;
+  let conteudosPorCategoria = new Map();
+
+  function indexarConteudos() {
+    conteudosPorCategoria = new Map();
+
+    todosConteudos.forEach(function(item) {
+      const chave = normalizarTexto(item.categoria);
+      if (!conteudosPorCategoria.has(chave)) {
+        conteudosPorCategoria.set(chave, []);
+      }
+      conteudosPorCategoria.get(chave).push(item);
+    });
+  }
+
+  function artigosDaCategoria(categoria) {
+    return conteudosPorCategoria.get(normalizarTexto(categoria)) || [];
   }
 
   function mostrarCategorias() {
@@ -695,35 +708,69 @@
     sectionLabel.textContent = 'BIBLIOTECA PEDIÁTRICA';
     sectionHeading.textContent = 'Escolha um tema';
     sectionDescription.textContent = 'Encontre orientações organizadas por assunto para facilitar o acompanhamento de cada fase da criança.';
-    conteudosGrid.innerHTML = categorias.map(categoria => {
-      const quantidade = contarConteudos(categoria.nome);
-      const textoQuantidade = quantidade === 1 ? '1 conteúdo disponível' : `${quantidade} conteúdos disponíveis`;
+
+    conteudosGrid.innerHTML = categorias.map(function(categoria) {
+      const quantidade = artigosDaCategoria(categoria.nome).length;
+      const textoQuantidade = quantidade === 1
+        ? '1 conteúdo disponível'
+        : `${quantidade} conteúdos disponíveis`;
+
       return `<article class="category-card" data-category="${escapeHtml(categoria.nome)}" tabindex="0" role="button">
-        <div class="category-icon">${categoria.icone}</div><h3>${escapeHtml(categoria.nome)}</h3>
-        <p>${escapeHtml(categoria.descricao)}</p><div class="category-bottom"><span class="category-count">${textoQuantidade}</span><span class="category-arrow">→</span></div></article>`;
+        <div class="category-icon">${categoria.icone}</div>
+        <h3>${escapeHtml(categoria.nome)}</h3>
+        <p>${escapeHtml(categoria.descricao)}</p>
+        <div class="category-bottom">
+          <span class="category-count">${textoQuantidade}</span>
+          <span class="category-arrow">→</span>
+        </div>
+      </article>`;
     }).join('');
-    document.querySelectorAll('.category-card').forEach(card => {
-      const abrir = () => mostrarArtigos(card.dataset.category);
-      card.addEventListener('click', abrir);
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(); } });
-    });
   }
 
   function mostrarArtigos(categoria) {
-    const c = normalizarTexto(categoria);
-    const artigos = todosConteudos.filter(item => normalizarTexto(item.categoria) === c);
+    const artigos = artigosDaCategoria(categoria);
+
     categoryBack.style.display = 'block';
-    sectionLabel.textContent = 'CONTEÚDOS'; sectionHeading.textContent = categoria;
+    sectionLabel.textContent = 'CONTEÚDOS';
+    sectionHeading.textContent = categoria;
     sectionDescription.textContent = 'Selecione um conteúdo para acessar as orientações completas.';
-    if (!artigos.length) { conteudosGrid.innerHTML = '<div class="content-message">Ainda não há conteúdos publicados nesta categoria.</div>'; return; }
-    conteudosGrid.innerHTML = artigos.map(item => `<article class="card"><div class="content-meta">${escapeHtml(item.categoria)}${item.faixa_etaria ? ' · '+escapeHtml(item.faixa_etaria) : ''}</div><h3>${escapeHtml(item.titulo)}</h3><p>${escapeHtml(item.resumo || 'Conteúdo educativo exclusivo para pacientes.')}</p><a class="read-link" href="artigo.html?id=${encodeURIComponent(item.id)}">Ler conteúdo →</a><div class="available">✓ Conteúdo exclusivo</div></article>`).join('');
+
+    if (!artigos.length) {
+      conteudosGrid.innerHTML = '<div class="content-message">Ainda não há conteúdos publicados nesta categoria.</div>';
+      return;
+    }
+
+    conteudosGrid.innerHTML = artigos.map(function(item) {
+      return `<article class="card">
+        <div class="content-meta">${escapeHtml(item.categoria)}${item.faixa_etaria ? ' · ' + escapeHtml(item.faixa_etaria) : ''}</div>
+        <h3>${escapeHtml(item.titulo)}</h3>
+        <p>${escapeHtml(item.resumo || 'Conteúdo educativo exclusivo para pacientes.')}</p>
+        <a class="read-link" href="artigo.html?id=${encodeURIComponent(item.id)}">Ler conteúdo →</a>
+        <div class="available">✓ Conteúdo exclusivo</div>
+      </article>`;
+    }).join('');
   }
+
+  /* Um único listener para todas as categorias, inclusive após redesenhar a grade. */
+  conteudosGrid.addEventListener('click', function(event) {
+    const card = event.target.closest('.category-card');
+    if (card) mostrarArtigos(card.dataset.category);
+  });
+
+  conteudosGrid.addEventListener('keydown', function(event) {
+    const card = event.target.closest('.category-card');
+    if (card && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      mostrarArtigos(card.dataset.category);
+    }
+  });
 
   async function carregarConteudos() {
     conteudosGrid.innerHTML = '<div class="content-message">Carregando conteúdos...</div>';
     const { data, error } = await supabaseClient.from('conteudos').select('id, categoria, titulo, faixa_etaria, resumo, ordem').eq('publicado', true).order('ordem', { ascending:true });
     if (error) { console.error('Erro ao carregar conteúdos:', error); conteudosGrid.innerHTML = '<div class="content-message">Não foi possível carregar os conteúdos agora. Tente novamente em alguns instantes.</div>'; return; }
     todosConteudos = data || [];
+    indexarConteudos();
     mostrarCategorias();
   }
 
