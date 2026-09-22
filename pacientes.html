@@ -302,6 +302,19 @@
       font-weight: bold;
     }
 
+    .read-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #167a5b;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .read-link:hover {
+      text-decoration: underline;
+    }
+
     .content-message {
       grid-column: 1 / -1;
       background: #ffffff;
@@ -653,7 +666,7 @@
       .from('conteudos')
 
       .select(
-        'id, categoria, titulo, faixa_etaria, conteudo, ordem'
+        'id, categoria, titulo, faixa_etaria, resumo, conteudo, ordem'
       )
 
       .eq('publicado', true)
@@ -720,8 +733,14 @@
         </h3>
 
         <p>
-          ${escapeHtml(item.conteudo)}
+          ${escapeHtml(item.resumo || 'Conteúdo educativo exclusivo para pacientes.')}
         </p>
+
+        <a
+          class="read-link"
+          href="artigo.html?id=${encodeURIComponent(item.id)}">
+          Ler conteúdo →
+        </a>
 
         <div class="available">
           ✓ Conteúdo exclusivo
