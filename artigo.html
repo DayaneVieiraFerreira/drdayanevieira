@@ -145,6 +145,24 @@
       color: #25303b;
     }
 
+    .article-illustration {
+      margin: 8px 0 30px;
+    }
+
+    .article-illustration img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    .article-illustration figcaption {
+      margin-top: 9px;
+      color: #7a8288;
+      font-size: 12px;
+      text-align: center;
+    }
+
     .important {
       margin: 30px 0;
       padding: 22px 24px;
@@ -692,10 +710,35 @@
       data.resumo || '';
 
 
-    articleBody.innerHTML =
+    const conteudoFormatado =
       formatarConteudo(
         data.conteudo
       );
+
+    const ehArtigoTeste =
+      String(data.titulo || '')
+        .trim()
+        .toLowerCase() ===
+      'desenvolvimento do bebê: do nascimento aos 3 meses';
+
+    const imagemTeste = ehArtigoTeste
+      ? `
+        <figure class="article-illustration">
+          <img
+            src="tummy-time.webp"
+            alt="Bebê acordado realizando tummy time sob supervisão de um adulto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Tummy time: sempre com o bebê acordado e sob supervisão.
+          </figcaption>
+        </figure>
+      `
+      : '';
+
+    articleBody.innerHTML =
+      imagemTeste + conteudoFormatado;
 
 
     loading.style.display =
