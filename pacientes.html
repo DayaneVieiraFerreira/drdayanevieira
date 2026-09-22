@@ -6,7 +6,9 @@
 
   <title>Área dos Pacientes | Dra. Dayane Vieira</title>
 
-  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iWN8XXbNAHLaNKjIc6yOE2-X6d3swOBkVWA2rEKFs0DlCbbAkWSRUqw7i_dU3TJdQ3nAvjm01r0VMGamDI1kX1h9fb4NIQ_VDP4-jYncPCHuhQT607K-B77Cmea4elRRgY4Dj8JOzc8jQaIxy9andXS9Tw6WHelR4wy2VD7hmCUgmxNMvqGUKriWWc7WupIa7wNqQJ8dpXXDACaJAopOlHL9LWwq1tBRDOEF4aZBQdkd_KcudS235TXsJpwXdI96IjXN1oLr7mvmQlMQeGUzf8ehVFopeFwazY1xCrLmVkjR_hH3Yh8l6QZsywUgXwe7" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMGMxZDA4MjBlYTUxY2VlMzc5NGE4MTM4YyZmbj1wYWNpZW50ZXMuaHRtbCZjZD1hdHRhY2htZW50JnRzPTQ5NzI1MSZwPWZzJmNpZD0xJnNpZz00Y2Y4ZWE4NTgyODJhZTU3MTIyZDgxYjlmNzMxOGNkZDk5ODZmMTJlNTJkZmMyMzJkNTY4OTY0YTBmNjY2YTliJnY9MA"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://pizpvlksxubvlkmyfvbh.supabase.co" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     * {
@@ -324,20 +326,6 @@
       color: #68727a;
     }
 
-    .category-card {
-      background: #ffffff; border: 1px solid #ebe6e2; border-radius: 20px; padding: 28px; min-height: 220px; transition: .2s; cursor: pointer;
-    }
-    .category-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.07); border-color: #d8e7e1; }
-    .category-icon { width:52px; height:52px; border-radius:15px; background:#eaf5f1; display:flex; align-items:center; justify-content:center; font-size:25px; margin-bottom:20px; }
-    .category-card h3 { font-size:20px; margin-bottom:8px; }
-    .category-card p { color:#68727a; font-size:14px; margin-bottom:20px; }
-    .category-bottom { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    .category-count { color:#167a5b; font-size:12px; font-weight:bold; }
-    .category-arrow { color:#167a5b; font-size:20px; font-weight:bold; }
-    .category-back { display:none; margin-bottom:25px; }
-    .category-back button { background:transparent; border:none; padding:0; color:#167a5b; font-size:14px; font-weight:bold; cursor:pointer; }
-    .category-back button:hover { text-decoration:underline; }
-
     .content-meta {
       display: inline-block;
       margin-bottom: 12px;
@@ -545,12 +533,14 @@
 
   <main class="content">
 
-    <div class="category-back" id="category-back"><button type="button" id="back-categories">← Voltar às categorias</button></div>
-
     <div class="section-title">
-      <span id="section-label">BIBLIOTECA PEDIÁTRICA</span>
-      <h2 id="section-heading">Escolha um tema</h2>
-      <p id="section-description">Encontre orientações organizadas por assunto para facilitar o acompanhamento de cada fase da criança.</p>
+
+      <span>ACOMPANHAMENTO</span>
+
+      <h2>
+        Conteúdos para cada fase
+      </h2>
+
     </div>
 
 
@@ -662,87 +652,135 @@
   }
 
 
-  const sectionLabel = document.getElementById('section-label');
-  const sectionHeading = document.getElementById('section-heading');
-  const sectionDescription = document.getElementById('section-description');
-  const categoryBack = document.getElementById('category-back');
-  const backCategories = document.getElementById('back-categories');
-
-  let todosConteudos = [];
-
-  const categorias = [
-    { nome:'Desenvolvimento', icone:'👶', descricao:'Marcos do desenvolvimento e orientações organizadas por faixa etária.' },
-    { nome:'Alimentação', icone:'🥣', descricao:'Amamentação, introdução alimentar e alimentação saudável na infância.' },
-    { nome:'Vacinação', icone:'💉', descricao:'Informações e orientações importantes sobre vacinação infantil.' },
-    { nome:'Sono', icone:'😴', descricao:'Sono seguro, rotina e orientações para diferentes fases da infância.' },
-    { nome:'Prevenção de acidentes', icone:'🛡️', descricao:'Cuidados para tornar a casa e a rotina mais seguras para a criança.' },
-    { nome:'Quando procurar atendimento', icone:'🩺', descricao:'Orientações educativas sobre situações que merecem avaliação médica.' }
-  ];
-
-  function normalizarTexto(value) {
-    return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
-  }
-
-  function contarConteudos(categoria) {
-    const c = normalizarTexto(categoria);
-    return todosConteudos.filter(item => normalizarTexto(item.categoria) === c).length;
-  }
-
-  function mostrarCategorias() {
-    categoryBack.style.display = 'none';
-    sectionLabel.textContent = 'BIBLIOTECA PEDIÁTRICA';
-    sectionHeading.textContent = 'Escolha um tema';
-    sectionDescription.textContent = 'Encontre orientações organizadas por assunto para facilitar o acompanhamento de cada fase da criança.';
-    conteudosGrid.innerHTML = categorias.map(categoria => {
-      const quantidade = contarConteudos(categoria.nome);
-      const textoQuantidade = quantidade === 1 ? '1 conteúdo disponível' : `${quantidade} conteúdos disponíveis`;
-      return `<article class="category-card" data-category="${escapeHtml(categoria.nome)}" tabindex="0" role="button">
-        <div class="category-icon">${categoria.icone}</div><h3>${escapeHtml(categoria.nome)}</h3>
-        <p>${escapeHtml(categoria.descricao)}</p><div class="category-bottom"><span class="category-count">${textoQuantidade}</span><span class="category-arrow">→</span></div></article>`;
-    }).join('');
-    document.querySelectorAll('.category-card').forEach(card => {
-      const abrir = () => mostrarArtigos(card.dataset.category);
-      card.addEventListener('click', abrir);
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(); } });
-    });
-  }
-
-  function mostrarArtigos(categoria) {
-    const c = normalizarTexto(categoria);
-    const artigos = todosConteudos.filter(item => normalizarTexto(item.categoria) === c);
-    categoryBack.style.display = 'block';
-    sectionLabel.textContent = 'CONTEÚDOS'; sectionHeading.textContent = categoria;
-    sectionDescription.textContent = 'Selecione um conteúdo para acessar as orientações completas.';
-    if (!artigos.length) { conteudosGrid.innerHTML = '<div class="content-message">Ainda não há conteúdos publicados nesta categoria.</div>'; return; }
-    conteudosGrid.innerHTML = artigos.map(item => `<article class="card"><div class="content-meta">${escapeHtml(item.categoria)}${item.faixa_etaria ? ' · '+escapeHtml(item.faixa_etaria) : ''}</div><h3>${escapeHtml(item.titulo)}</h3><p>${escapeHtml(item.resumo || 'Conteúdo educativo exclusivo para pacientes.')}</p><a class="read-link" href="artigo.html?id=${encodeURIComponent(item.id)}">Ler conteúdo →</a><div class="available">✓ Conteúdo exclusivo</div></article>`).join('');
-  }
+  /* BUSCAR CONTEÚDOS NO SUPABASE */
 
   async function carregarConteudos() {
-    conteudosGrid.innerHTML = '<div class="content-message">Carregando conteúdos...</div>';
-    const { data, error } = await supabaseClient.from('conteudos').select('id, categoria, titulo, faixa_etaria, resumo, conteudo, ordem').eq('publicado', true).order('ordem', { ascending:true });
-    if (error) { console.error('Erro ao carregar conteúdos:', error); conteudosGrid.innerHTML = '<div class="content-message">Não foi possível carregar os conteúdos agora. Tente novamente em alguns instantes.</div>'; return; }
-    todosConteudos = data || [];
-    mostrarCategorias();
+
+    conteudosGrid.innerHTML = `
+      <div class="content-message">
+        Carregando conteúdos...
+      </div>
+    `;
+
+
+    const { data, error } = await supabaseClient
+
+      .from('conteudos')
+
+      .select(
+        'id, categoria, titulo, faixa_etaria, resumo, ordem'
+      )
+
+      .eq('publicado', true)
+
+      .order('ordem', {
+        ascending: true
+      });
+
+
+    /* ERRO */
+
+    if (error) {
+
+      console.error(
+        'Erro ao carregar conteúdos:',
+        error
+      );
+
+      conteudosGrid.innerHTML = `
+        <div class="content-message">
+          Não foi possível carregar os conteúdos agora.
+          Tente novamente em alguns instantes.
+        </div>
+      `;
+
+      return;
+    }
+
+
+    /* NENHUM CONTEÚDO */
+
+    if (!data || data.length === 0) {
+
+      conteudosGrid.innerHTML = `
+        <div class="content-message">
+          Nenhum conteúdo está disponível neste momento.
+        </div>
+      `;
+
+      return;
+    }
+
+
+    /* MOSTRAR CONTEÚDOS */
+
+    conteudosGrid.innerHTML = data.map(item => `
+
+      <article class="card">
+
+        <div class="content-meta">
+
+          ${escapeHtml(item.categoria)}
+
+          ${
+            item.faixa_etaria
+              ? ' · ' + escapeHtml(item.faixa_etaria)
+              : ''
+          }
+
+        </div>
+
+        <h3>
+          ${escapeHtml(item.titulo)}
+        </h3>
+
+        <p>
+          ${escapeHtml(item.resumo || 'Conteúdo educativo exclusivo para pacientes.')}
+        </p>
+
+        <a
+          class="read-link"
+          href="artigo.html?id=${encodeURIComponent(item.id)}">
+          Ler conteúdo →
+        </a>
+
+        <div class="available">
+          ✓ Conteúdo exclusivo
+        </div>
+
+      </article>
+
+    `).join('');
+
   }
 
-  backCategories.addEventListener('click', function(){ mostrarCategorias(); });
 
   /* MOSTRAR ÁREA DO PACIENTE */
+
+  let conteudosCarregados = false;
+  let carregamentoEmAndamento = null;
 
   async function showPatientArea() {
 
     loginArea.style.display = 'none';
-
     patientArea.style.display = 'block';
-
     publicHeader.style.display = 'none';
-
     patientHeader.style.display = 'flex';
 
+    /* Evita consultas duplicadas no celular */
+    if (conteudosCarregados) return;
 
-    /* SOMENTE AGORA BUSCAMOS O CONTEÚDO */
+    if (!carregamentoEmAndamento) {
+      carregamentoEmAndamento = carregarConteudos()
+        .then(function() {
+          conteudosCarregados = true;
+        })
+        .finally(function() {
+          carregamentoEmAndamento = null;
+        });
+    }
 
-    await carregarConteudos();
+    await carregamentoEmAndamento;
 
   }
 
@@ -843,6 +881,8 @@
     async function() {
 
       await supabaseClient.auth.signOut();
+
+      conteudosCarregados = false;
 
       showLogin();
 
