@@ -285,11 +285,6 @@
       box-shadow: 0 10px 28px rgba(0,0,0,.06);
     }
 
-    .icon {
-      font-size: 28px;
-      margin-bottom: 18px;
-    }
-
     .card h3 {
       margin-bottom: 8px;
       font-size: 19px;
@@ -305,6 +300,24 @@
       color: #167a5b;
       font-size: 12px;
       font-weight: bold;
+    }
+
+    .content-message {
+      grid-column: 1 / -1;
+      background: #ffffff;
+      border: 1px solid #ebe6e2;
+      border-radius: 20px;
+      padding: 28px;
+      color: #68727a;
+    }
+
+    .content-meta {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #a93d67;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .5px;
     }
 
     footer {
@@ -380,16 +393,27 @@
       <a class="back-link" href="index.html">← Voltar ao site</a>
     </div>
 
-    <div id="patient-header" class="patient-header-actions" style="display:none;">
-      <a class="back-link" href="index.html">← Voltar ao site</a>
-      <button class="logout-button" id="logout-button">Sair</button>
+    <div id="patient-header"
+         class="patient-header-actions"
+         style="display:none;">
+
+      <a class="back-link" href="index.html">
+        ← Voltar ao site
+      </a>
+
+      <button
+        class="logout-button"
+        id="logout-button">
+        Sair
+      </button>
+
     </div>
 
   </div>
 </header>
 
 
-<!-- TELA DE LOGIN -->
+<!-- LOGIN -->
 
 <section id="login-area">
 
@@ -408,6 +432,7 @@
 
       <div class="form-group">
         <label for="email">E-mail</label>
+
         <input
           type="email"
           id="email"
@@ -419,6 +444,7 @@
 
       <div class="form-group">
         <label for="password">Senha</label>
+
         <input
           type="password"
           id="password"
@@ -428,7 +454,11 @@
         >
       </div>
 
-      <button class="login-button" id="login-button" type="submit">
+      <button
+        class="login-button"
+        id="login-button"
+        type="submit">
+
         Entrar
       </button>
 
@@ -447,22 +477,28 @@
 </section>
 
 
-<!-- CONTEÚDO PROTEGIDO -->
+<!-- ÁREA PROTEGIDA -->
 
 <div id="patient-area">
 
   <section class="hero">
 
-    <div class="badge">✓ ÁREA EXCLUSIVA PARA PACIENTES</div>
+    <div class="badge">
+      ✓ ÁREA EXCLUSIVA PARA PACIENTES
+    </div>
 
-    <h1>Informação e cuidado também depois da consulta.</h1>
+    <h1>
+      Informação e cuidado também depois da consulta.
+    </h1>
 
     <p>
       Um espaço preparado para auxiliar as famílias com informações
-      sobre o desenvolvimento e os cuidados com bebês, crianças e adolescentes.
+      sobre o desenvolvimento e os cuidados com bebês,
+      crianças e adolescentes.
     </p>
 
   </section>
+
 
   <section class="notice">
 
@@ -479,182 +515,371 @@
 
   </section>
 
+
   <main class="content">
 
     <div class="section-title">
+
       <span>ACOMPANHAMENTO</span>
-      <h2>Conteúdos para cada fase</h2>
+
+      <h2>
+        Conteúdos para cada fase
+      </h2>
+
     </div>
 
-    <div class="grid">
 
-      <div class="card">
-        <div class="icon">🌱</div>
-        <h3>Desenvolvimento</h3>
-        <p>
-          Informações sobre crescimento, desenvolvimento e diferentes
-          fases da infância.
-        </p>
-        <div class="available">✓ Disponível para pacientes</div>
-      </div>
+    <!-- OS CONTEÚDOS DO SUPABASE SERÃO INSERIDOS AQUI -->
 
-      <div class="card">
-        <div class="icon">💉</div>
-        <h3>Vacinas</h3>
-        <p>
-          Orientações educativas sobre vacinação e proteção da criança
-          ao longo das diferentes idades.
-        </p>
-        <div class="available">✓ Disponível para pacientes</div>
-      </div>
+    <div
+      class="grid"
+      id="conteudos-grid">
 
-      <div class="card">
-        <div class="icon">🥕</div>
-        <h3>Alimentação</h3>
-        <p>
-          Conteúdos sobre aleitamento, introdução alimentar e hábitos
-          alimentares durante a infância.
-        </p>
-        <div class="available">✓ Disponível para pacientes</div>
-      </div>
-
-      <div class="card">
-        <div class="icon">🌙</div>
-        <h3>Sono</h3>
-        <p>
-          Informações para compreender o sono e as mudanças que acontecem
-          conforme a criança cresce.
-        </p>
-        <div class="available">✓ Disponível para pacientes</div>
-      </div>
-
-      <div class="card">
-        <div class="icon">🛡️</div>
-        <h3>Prevenção de acidentes</h3>
-        <p>
-          Cuidados importantes para tornar os ambientes mais seguros
-          em cada etapa do desenvolvimento.
-        </p>
-        <div class="available">✓ Disponível para pacientes</div>
-      </div>
-
-      <div class="card">
-        <div class="icon">🩺</div>
-        <h3>Quando procurar atendimento</h3>
-        <p>
-          Informações educativas sobre sinais que merecem atenção e situações
-          em que a criança deve ser avaliada por um profissional de saúde.
-        </p>
-        <div class="available">✓ Disponível para pacientes</div>
+      <div class="content-message">
+        Carregando conteúdos...
       </div>
 
     </div>
 
   </main>
 
+
   <footer>
+
     <p>
-      © 2026 Dra. Dayane Vieira Ferreira · Pediatria · CRM-SC 33696 | RQE 22827
+      © 2026 Dra. Dayane Vieira Ferreira ·
+      Pediatria · CRM-SC 33696 | RQE 22827
     </p>
+
   </footer>
 
 </div>
 
 
 <script>
-  const SUPABASE_URL = 'https://pizpvlksxubvlkmyfvbh.supabase.co';
+
+  /* CONFIGURAÇÃO DO SUPABASE */
+
+  const SUPABASE_URL =
+    'https://pizpvlksxubvlkmyfvbh.supabase.co';
+
   const SUPABASE_PUBLISHABLE_KEY =
     'sb_publishable_2-QUMkZ34aJEG_6ti-qkpg_uGPWYQj8';
+
 
   const supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
   );
 
-  const loginArea = document.getElementById('login-area');
-  const patientArea = document.getElementById('patient-area');
-  const publicHeader = document.getElementById('public-header');
-  const patientHeader = document.getElementById('patient-header');
-  const loginForm = document.getElementById('login-form');
-  const loginButton = document.getElementById('login-button');
-  const loginMessage = document.getElementById('login-message');
-  const logoutButton = document.getElementById('logout-button');
+
+  /* ELEMENTOS DA PÁGINA */
+
+  const loginArea =
+    document.getElementById('login-area');
+
+  const patientArea =
+    document.getElementById('patient-area');
+
+  const publicHeader =
+    document.getElementById('public-header');
+
+  const patientHeader =
+    document.getElementById('patient-header');
+
+  const loginForm =
+    document.getElementById('login-form');
+
+  const loginButton =
+    document.getElementById('login-button');
+
+  const loginMessage =
+    document.getElementById('login-message');
+
+  const logoutButton =
+    document.getElementById('logout-button');
+
+  const conteudosGrid =
+    document.getElementById('conteudos-grid');
+
+
+  /* MOSTRAR LOGIN */
 
   function showLogin() {
+
     loginArea.style.display = 'flex';
+
     patientArea.style.display = 'none';
+
     publicHeader.style.display = 'block';
+
     patientHeader.style.display = 'none';
-  }
-
-  function showPatientArea() {
-    loginArea.style.display = 'none';
-    patientArea.style.display = 'block';
-    publicHeader.style.display = 'none';
-    patientHeader.style.display = 'flex';
-  }
-
-  async function checkSession() {
-
-    const { data } = await supabaseClient.auth.getSession();
-
-    if (data.session) {
-      showPatientArea();
-    } else {
-      showLogin();
-    }
 
   }
 
-  loginForm.addEventListener('submit', async function(event) {
 
-    event.preventDefault();
+  /* PROTEÇÃO CONTRA HTML INSERIDO NO BANCO */
 
-    loginMessage.style.display = 'none';
-    loginButton.disabled = true;
-    loginButton.textContent = 'Entrando...';
+  function escapeHtml(value) {
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
+    return String(value ?? '')
 
-    const { error } = await supabaseClient.auth.signInWithPassword({
-      email: email,
-      password: password
-    });
+      .replaceAll('&', '&amp;')
 
-    loginButton.disabled = false;
-    loginButton.textContent = 'Entrar';
+      .replaceAll('<', '&lt;')
+
+      .replaceAll('>', '&gt;')
+
+      .replaceAll('"', '&quot;')
+
+      .replaceAll("'", '&#039;');
+
+  }
+
+
+  /* BUSCAR CONTEÚDOS NO SUPABASE */
+
+  async function carregarConteudos() {
+
+    conteudosGrid.innerHTML = `
+      <div class="content-message">
+        Carregando conteúdos...
+      </div>
+    `;
+
+
+    const { data, error } = await supabaseClient
+
+      .from('conteudos')
+
+      .select(
+        'id, categoria, titulo, faixa_etaria, conteudo, ordem'
+      )
+
+      .eq('publicado', true)
+
+      .order('ordem', {
+        ascending: true
+      });
+
+
+    /* ERRO */
 
     if (error) {
-      loginMessage.textContent = 'E-mail ou senha incorretos.';
-      loginMessage.style.display = 'block';
+
+      console.error(
+        'Erro ao carregar conteúdos:',
+        error
+      );
+
+      conteudosGrid.innerHTML = `
+        <div class="content-message">
+          Não foi possível carregar os conteúdos agora.
+          Tente novamente em alguns instantes.
+        </div>
+      `;
+
       return;
     }
 
-    loginForm.reset();
-    showPatientArea();
 
-  });
+    /* NENHUM CONTEÚDO */
 
-  logoutButton.addEventListener('click', async function() {
+    if (!data || data.length === 0) {
 
-    await supabaseClient.auth.signOut();
+      conteudosGrid.innerHTML = `
+        <div class="content-message">
+          Nenhum conteúdo está disponível neste momento.
+        </div>
+      `;
 
-    showLogin();
-
-  });
-
-  supabaseClient.auth.onAuthStateChange(function(event, session) {
-
-    if (session) {
-      showPatientArea();
-    } else {
-      showLogin();
+      return;
     }
 
-  });
+
+    /* MOSTRAR CONTEÚDOS */
+
+    conteudosGrid.innerHTML = data.map(item => `
+
+      <article class="card">
+
+        <div class="content-meta">
+
+          ${escapeHtml(item.categoria)}
+
+          ${
+            item.faixa_etaria
+              ? ' · ' + escapeHtml(item.faixa_etaria)
+              : ''
+          }
+
+        </div>
+
+        <h3>
+          ${escapeHtml(item.titulo)}
+        </h3>
+
+        <p>
+          ${escapeHtml(item.conteudo)}
+        </p>
+
+        <div class="available">
+          ✓ Conteúdo exclusivo
+        </div>
+
+      </article>
+
+    `).join('');
+
+  }
+
+
+  /* MOSTRAR ÁREA DO PACIENTE */
+
+  async function showPatientArea() {
+
+    loginArea.style.display = 'none';
+
+    patientArea.style.display = 'block';
+
+    publicHeader.style.display = 'none';
+
+    patientHeader.style.display = 'flex';
+
+
+    /* SOMENTE AGORA BUSCAMOS O CONTEÚDO */
+
+    await carregarConteudos();
+
+  }
+
+
+  /* VERIFICAR SE JÁ EXISTE LOGIN */
+
+  async function checkSession() {
+
+    const { data } =
+      await supabaseClient.auth.getSession();
+
+
+    if (data.session) {
+
+      await showPatientArea();
+
+    } else {
+
+      showLogin();
+
+    }
+
+  }
+
+
+  /* LOGIN */
+
+  loginForm.addEventListener(
+    'submit',
+    async function(event) {
+
+      event.preventDefault();
+
+
+      loginMessage.style.display = 'none';
+
+      loginButton.disabled = true;
+
+      loginButton.textContent =
+        'Entrando...';
+
+
+      const email =
+        document
+          .getElementById('email')
+          .value
+          .trim();
+
+
+      const password =
+        document
+          .getElementById('password')
+          .value;
+
+
+      const { error } =
+        await supabaseClient.auth
+          .signInWithPassword({
+
+            email: email,
+
+            password: password
+
+          });
+
+
+      loginButton.disabled = false;
+
+      loginButton.textContent =
+        'Entrar';
+
+
+      if (error) {
+
+        loginMessage.textContent =
+          'E-mail ou senha incorretos.';
+
+        loginMessage.style.display =
+          'block';
+
+        return;
+
+      }
+
+
+      loginForm.reset();
+
+      await showPatientArea();
+
+    }
+  );
+
+
+  /* LOGOUT */
+
+  logoutButton.addEventListener(
+    'click',
+    async function() {
+
+      await supabaseClient.auth.signOut();
+
+      showLogin();
+
+    }
+  );
+
+
+  /* ALTERAÇÃO DA SESSÃO */
+
+  supabaseClient.auth.onAuthStateChange(
+    function(event, session) {
+
+      if (session) {
+
+        showPatientArea();
+
+      } else {
+
+        showLogin();
+
+      }
+
+    }
+  );
+
+
+  /* INICIAR */
 
   checkSession();
+
 </script>
 
 </body>
