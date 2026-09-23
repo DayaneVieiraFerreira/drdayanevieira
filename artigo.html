@@ -9,9 +9,7 @@
 
   <title>Conteúdo | Dra. Dayane Vieira</title>
 
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://pizpvlksxubvlkmyfvbh.supabase.co" crossorigin>
-  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=eCpqFu9QcHcWfCxaSr7tGb66bON7uUsjsaMhAV9L3nRRSMv7QoJeU38R-8CtfDse2oCjx_-8f9g-mdjHP6nVywdnJVK3OmNqSB9OtL5JiULns6fiAc5jtskgpt6-DKOXmic2fF7RhTr5RXKvARjCGHzELsrlvvKClFj_awf3AkpCUvxqePg52Znhxo_7vHbHrYwDQsykKDLBzh7ITye4yzXER2JOmpMUOtO_Ca850_pfmXg_o-7uTW-r7YHYNxRvEreZmObLjnHy9e_xUq73BpDol9-uyoaweaNl-uud7EkdnQha6Uh4JWzqxTAaspBZ1wINH4pdg758rp6QZMBO2Q" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDk1YTA4MjBlYjdlZWQ0OWRjMGZkNzJjMyZmbj1hcnRpZ29fbW9iaWxlX290aW1pemFkby5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk3MjU1JnA9ZnMmY2lkPTEmc2lnPTY0NmVjMWYyOTg3MmRhNzI4NmZmMjk4NWEzYTc5NTBlNWZhZmEwOTk3MDkzN2RlM2MzZWEyOWM0NmU1ZjdjODcmdj0w"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HvUyO3rcPcbph15xY85krQa_lcyWiLlxSopoVxY1j24yI5fth89p4sArIyV573yN_J4Cu2TDp6X6eB8161rKf-kuYulZL17F4D2DXFJNEQaERHunGzgKSa1X5e4CdYB1gZX8xt4pImDr0vpMaDwK1-kszsXOgHuw15EUZRE9SxaIgkn_UfBVbrtKDcR06UMuFWqdwVf8nDBlNssY5kZH_T-mU6N2blLtEyDq0RdDS5H8-aGbftlXSfdjhsHLZXOACgkeu7ygAQVvO6eZK8Rx4sTa9TDUJ-tfJlQKKBVk2ettu20o8hxo9n2udDpJK7kr4dZFkDffHqsMuDUFggaAvQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDY2ZWM4MjBlOWUzNzgxMTYzYTk0MTliYiZmbj1hcnRpZ29fZGlhZ25vc3RpY29fY2VsdWxhci5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk3MjU2JnA9ZnMmY2lkPTEmc2lnPTkzYjdiNjI3NGE3ODAwMmQ0ZTY5OTE0N2E5N2ExY2MxNWM5NjJjNmJjZTFlMWM5ZTc4YTRlZjNmODg2ZjJiNzImdj0w"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
 
@@ -100,8 +98,6 @@
     }
 
     .article-body {
-      content-visibility: auto;
-      contain-intrinsic-size: 900px;
       background: #ffffff;
       border: 1px solid #ebe6e2;
       border-radius: 22px;
@@ -283,6 +279,11 @@
 
     }
 
+  
+    .diagnostic-box{position:fixed;left:10px;right:10px;bottom:10px;z-index:99999;
+    max-height:42vh;overflow:auto;background:rgba(20,28,35,.96);color:#fff;border-radius:12px;
+    padding:12px 14px;font:12px/1.45 Arial,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+    .diagnostic-box strong{color:#9ee2c9}.diagnostic-line{margin:3px 0}
   </style>
 </head>
 
@@ -391,6 +392,8 @@
 </div>
 
 
+<div id="diagnostic-box" class="diagnostic-box">
+<strong>Diagnóstico de carregamento</strong><div id="diagnostic-log"></div></div>
 <footer>
 
   <p>
@@ -402,6 +405,16 @@
 
 
 <script>
+  const diagnosticStart = performance.now();
+  function diagnostico(msg){
+    const alvo=document.getElementById('diagnostic-log');
+    if(!alvo)return;
+    const linha=document.createElement('div');
+    linha.className='diagnostic-line';
+    linha.textContent=Math.round(performance.now()-diagnosticStart)+' ms — '+msg;
+    alvo.appendChild(linha);
+  }
+  diagnostico('JavaScript iniciado');
 
   const SUPABASE_URL =
     'https://pizpvlksxubvlkmyfvbh.supabase.co';
@@ -597,92 +610,50 @@
 
 
   async function carregarArtigo() {
+    diagnostico('Iniciando artigo');
+    const id=new URLSearchParams(window.location.search).get('id');
+    diagnostico('ID lido: '+(id||'ausente'));
+    if(!id){diagnostico('ERRO: ID ausente');mostrarErro();return;}
 
-    const parametros = new URLSearchParams(window.location.search);
-    const id = parametros.get('id');
+    try{
+      diagnostico('Verificando sessão...');
+      const t1=performance.now();
+      const {data:sessionData,error:sessionError}=await supabaseClient.auth.getSession();
+      diagnostico('Sessão respondeu em '+Math.round(performance.now()-t1)+' ms');
+      if(sessionError) diagnostico('ERRO sessão: '+sessionError.message);
+      if(!sessionData || !sessionData.session){
+        diagnostico('Sem sessão ativa');
+        loading.textContent='Sem sessão ativa. Faça login pela Área dos Pacientes.';
+        return;
+      }
 
-    if (!id) {
-      mostrarErro();
-      return;
+      diagnostico('Sessão ativa');
+      diagnostico('Consultando artigo...');
+      const t2=performance.now();
+      const {data,error}=await supabaseClient.from('conteudos')
+        .select('id,categoria,titulo,faixa_etaria,resumo,conteudo')
+        .eq('id',id).eq('publicado',true).single();
+      diagnostico('Consulta respondeu em '+Math.round(performance.now()-t2)+' ms');
+
+      if(error || !data){
+        diagnostico('ERRO consulta: '+(error?error.message:'sem dados'));
+        mostrarErro();return;
+      }
+
+      diagnostico('Artigo recebido');
+      const t3=performance.now();
+      articleMeta.textContent=data.categoria+(data.faixa_etaria?' · '+data.faixa_etaria:'');
+      articleTitle.textContent=data.titulo;
+      articleSummary.textContent=data.resumo||'';
+      articleBody.innerHTML=formatarConteudo(data.conteudo);
+      loading.style.display='none';
+      articleContainer.style.display='block';
+      diagnostico('Renderização em '+Math.round(performance.now()-t3)+' ms');
+      diagnostico('TESTE CONCLUÍDO');
+    }catch(err){
+      diagnostico('EXCEÇÃO: '+(err && err.message?err.message:String(err)));
     }
-
-    /*
-     * Sessão e conteúdo são solicitados em paralelo.
-     * A proteção real permanece no RLS do Supabase.
-     */
-    const sessionPromise = supabaseClient.auth.getSession();
-
-    const artigoPromise = supabaseClient
-      .from('conteudos')
-      .select(`
-        id,
-        categoria,
-        titulo,
-        faixa_etaria,
-        resumo,
-        conteudo
-      `)
-      .eq('id', id)
-      .eq('publicado', true)
-      .single();
-
-    const [
-      { data: sessionData },
-      { data, error }
-    ] = await Promise.all([sessionPromise, artigoPromise]);
-
-    if (!sessionData.session) {
-      window.location.replace('pacientes.html');
-      return;
-    }
-
-    if (error || !data) {
-      console.error('Erro ao carregar artigo:', error);
-      mostrarErro();
-      return;
-    }
-
-
-    /*
-     * PREENCHER A PÁGINA
-     */
-
-    articleMeta.textContent =
-      data.categoria +
-      (
-        data.faixa_etaria
-          ? ' · ' +
-            data.faixa_etaria
-          : ''
-      );
-
-
-    articleTitle.textContent =
-      data.titulo;
-
-
-    articleSummary.textContent =
-      data.resumo || '';
-
-
-    let conteudoFormatado =
-      formatarConteudo(
-        data.conteudo
-      );
-
-    articleBody.innerHTML =
-      conteudoFormatado;
-
-
-    loading.style.display =
-      'none';
-
-
-    articleContainer.style.display =
-      'block';
-
   }
-
 
   carregarArtigo();
 
