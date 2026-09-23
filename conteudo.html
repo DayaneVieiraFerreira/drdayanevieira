@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Conteúdo | Dra. Dayane Vieira</title>
+
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=U8vZYQBFhWS5vy_YpEXivM7o7AT5Otx8CFxHY4yfDBx1Fub1oEcBFDZhRwfVMd_NlCDV9OUmrIm-DWqEBnsavwW0nU8eG2e4s7McwwqrZhp1I3CvE7rSBnwcWwtEVpOeHCjkvwcyTMxKKoAYYg-wqwQKAj9-CIDyotyhcdo0Gy_pg_NxLYGlmMHR-wY9IkaRxws3Ha7rINFuZ_Bf1SCQjlzCmlRB6Kqs7xdbOXVkrhVze8BE9hdAOLCi1AH6NCqur36TcqehMMHp7got3DKlpSy3K4sdXNjUJaFsYu2PfbZYUMQYk4vhJJynG-YhvXRk" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMGRmZGM4MjBlYWM2OTVhMDBiMjQxZGFlNCZmbj1jb250ZXVkby5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk3MjU2JnA9ZnMmY2lkPTEmc2lnPWRkM2I3MjYzZmY0MGMxNmNhYzZiNGYzMjBjZmYxY2YyN2FkM2MwZGY5MThiN2RmZjE0NzI3ZjRmOTAxZjE0NDYmdj0w"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #faf8f6;
+      color: #25303b;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #eee8e4;
+    }
+
+    .header-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 22px 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand h2 {
+      font-size: 18px;
+    }
+
+    .brand p {
+      font-size: 13px;
+      color: #6c747c;
+    }
+
+    .back-link {
+      color: #167a5b;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .loading {
+      max-width: 850px;
+      margin: 80px auto;
+      padding: 30px;
+      text-align: center;
+      color: #68727a;
+    }
+
+    .article-container {
+      display: none;
+
+      max-width: 850px;
+      margin: auto;
+      padding: 65px 30px 90px;
+    }
+
+    .article-meta {
+      color: #a93d67;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: .6px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .article-title {
+      font-size: 42px;
+      line-height: 1.15;
+      margin-bottom: 22px;
+      color: #1f2d3a;
+    }
+
+    .article-summary {
+      font-size: 18px;
+      color: #68727a;
+      margin-bottom: 40px;
+    }
+
+    .article-body {
+      background: #ffffff;
+      border: 1px solid #ebe6e2;
+      border-radius: 22px;
+      padding: 42px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.04);
+    }
+
+    .article-body h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+
+      color: #167a5b;
+      font-size: 23px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    .article-body h3 {
+      margin-top: 26px;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .article-body p {
+      margin-bottom: 18px;
+    }
+
+    .article-body ul {
+      margin:
+        10px
+        0
+        22px
+        25px;
+    }
+
+    .article-body li {
+      margin-bottom: 8px;
+    }
+
+    .article-body strong {
+      color: #25303b;
+    }
+
+    .article-illustration {
+      margin: 24px 0 30px;
+    }
+
+    .article-illustration img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    .article-illustration figcaption {
+      margin-top: 9px;
+      color: #7a8288;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .important {
+      margin: 30px 0;
+      padding: 22px 24px;
+
+      background: #f1f8f5;
+
+      border-left:
+        4px solid #167a5b;
+
+      border-radius: 12px;
+    }
+
+    .important strong {
+      color: #167a5b;
+    }
+
+    .medical-note {
+      margin-top: 45px;
+
+      padding: 22px 24px;
+
+      background: #faf8f6;
+
+      border-radius: 14px;
+
+      font-size: 14px;
+
+      color: #667078;
+    }
+
+    .sources {
+      margin-top: 35px;
+
+      padding-top: 25px;
+
+      border-top:
+        1px solid #ebe6e2;
+
+      font-size: 13px;
+
+      color: #68727a;
+    }
+
+    .sources h3 {
+      color: #25303b;
+      margin-bottom: 10px;
+    }
+
+    .error-box {
+      max-width: 700px;
+
+      margin: 80px auto;
+
+      background: #ffffff;
+
+      border:
+        1px solid #ebe6e2;
+
+      border-radius: 20px;
+
+      padding: 35px;
+
+      text-align: center;
+    }
+
+    .error-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .error-box p {
+      color: #68727a;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #25303b;
+      color: #ffffff;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer p {
+      font-size: 13px;
+      opacity: .8;
+    }
+
+    @media (max-width: 650px) {
+
+      .header-container {
+        padding: 18px 20px;
+      }
+
+      .brand p {
+        display: none;
+      }
+
+      .article-container {
+        padding:
+          45px 20px
+          70px;
+      }
+
+      .article-title {
+        font-size: 32px;
+      }
+
+      .article-summary {
+        font-size: 16px;
+      }
+
+      .article-body {
+        padding: 27px 22px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="header-container">
+
+    <div class="brand">
+
+      <h2>
+        Dra. Dayane Vieira Ferreira
+      </h2>
+
+      <p>
+        Médica Pediatra ·
+        CRM-SC 33696 |
+        RQE 22827
+      </p>
+
+    </div>
+
+
+    <a
+      class="back-link"
+      href="pacientes.html">
+
+      ← Área dos Pacientes
+
+    </a>
+
+  </div>
+
+</header>
+
+
+<div
+  id="loading"
+  class="loading">
+
+  Carregando conteúdo...
+
+</div>
+
+
+<main
+  id="article-container"
+  class="article-container">
+
+
+  <div
+    id="article-meta"
+    class="article-meta">
+  </div>
+
+
+  <h1
+    id="article-title"
+    class="article-title">
+  </h1>
+
+
+  <p
+    id="article-summary"
+    class="article-summary">
+  </p>
+
+
+  <article
+    id="article-body"
+    class="article-body">
+  </article>
+
+
+</main>
+
+
+<div
+  id="error-area"
+  style="display:none;">
+
+  <div class="error-box">
+
+    <h2>
+      Conteúdo indisponível
+    </h2>
+
+    <p>
+      Não foi possível acessar este
+      conteúdo.
+    </p>
+
+    <a
+      class="back-link"
+      href="pacientes.html">
+
+      ← Voltar para a Área dos Pacientes
+
+    </a>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  <p>
+    © 2026 Dra. Dayane Vieira Ferreira ·
+    Pediatria · CRM-SC 33696 | RQE 22827
+  </p>
+
+</footer>
+
+
+<script>
+
+  const SUPABASE_URL =
+    'https://pizpvlksxubvlkmyfvbh.supabase.co';
+
+
+  const SUPABASE_PUBLISHABLE_KEY =
+    'sb_publishable_2-QUMkZ34aJEG_6ti-qkpg_uGPWYQj8';
+
+
+  const supabaseClient =
+    supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+  const loading =
+    document.getElementById('loading');
+
+  const articleContainer =
+    document.getElementById(
+      'article-container'
+    );
+
+  const errorArea =
+    document.getElementById(
+      'error-area'
+    );
+
+  const articleMeta =
+    document.getElementById(
+      'article-meta'
+    );
+
+  const articleTitle =
+    document.getElementById(
+      'article-title'
+    );
+
+  const articleSummary =
+    document.getElementById(
+      'article-summary'
+    );
+
+  const articleBody =
+    document.getElementById(
+      'article-body'
+    );
+
+
+  function escapeHtml(value) {
+
+    return String(value ?? '')
+
+      .replaceAll('&', '&amp;')
+
+      .replaceAll('<', '&lt;')
+
+      .replaceAll('>', '&gt;')
+
+      .replaceAll('"', '&quot;')
+
+      .replaceAll(
+        "'",
+        '&#039;'
+      );
+
+  }
+
+
+  function formatarConteudo(texto) {
+
+    const textoSeguro =
+      escapeHtml(texto);
+
+
+    const blocos =
+      textoSeguro
+        .split(/\n\s*\n/)
+        .filter(
+          bloco =>
+            bloco.trim() !== ''
+        );
+
+
+    return blocos.map(bloco => {
+
+      const linhas =
+        bloco.split('\n');
+
+
+      /*
+       * TÍTULO:
+       * ## Nome da seção
+       */
+
+      if (
+        linhas.length === 1 &&
+        linhas[0].startsWith('## ')
+      ) {
+
+        return `
+          <h2>
+            ${linhas[0].substring(3)}
+          </h2>
+        `;
+
+      }
+
+
+      /*
+       * DESTAQUE:
+       * IMPORTANTE:
+       */
+
+      if (
+        linhas[0]
+          .toUpperCase()
+          .startsWith('IMPORTANTE:')
+      ) {
+
+        return `
+          <div class="important">
+            ${linhas.join('<br>')}
+          </div>
+        `;
+
+      }
+
+
+      /*
+       * LISTAS
+       */
+
+      if (
+        linhas.every(
+          linha =>
+            linha.trim()
+              .startsWith('- ')
+        )
+      ) {
+
+        const itens =
+          linhas.map(linha => `
+
+            <li>
+              ${
+                linha
+                  .trim()
+                  .substring(2)
+              }
+            </li>
+
+          `).join('');
+
+
+        return `
+          <ul>
+            ${itens}
+          </ul>
+        `;
+
+      }
+
+
+      /*
+       * PARÁGRAFO NORMAL
+       */
+
+      return `
+        <p>
+          ${linhas.join('<br>')}
+        </p>
+      `;
+
+    }).join('');
+
+  }
+
+
+  function mostrarErro() {
+
+    loading.style.display =
+      'none';
+
+    articleContainer.style.display =
+      'none';
+
+    errorArea.style.display =
+      'block';
+
+  }
+
+
+  async function carregarArtigo() {
+
+    /*
+     * PRIMEIRO:
+     * VERIFICAR LOGIN
+     */
+
+    const { data: sessionData } =
+      await supabaseClient.auth
+        .getSession();
+
+
+    if (!sessionData.session) {
+
+      window.location.href =
+        'pacientes.html';
+
+      return;
+
+    }
+
+
+    /*
+     * PEGAR ID DA URL
+     *
+     * Exemplo:
+     * artigo.html?id=1
+     */
+
+    const parametros =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const id =
+      parametros.get('id');
+
+
+    if (!id) {
+
+      mostrarErro();
+
+      return;
+
+    }
+
+
+    /*
+     * BUSCAR ARTIGO
+     */
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+
+        .from('conteudos')
+
+        .select(`
+          id,
+          categoria,
+          titulo,
+          faixa_etaria,
+          resumo,
+          conteudo
+        `)
+
+        .eq(
+          'id',
+          id
+        )
+
+        .eq(
+          'publicado',
+          true
+        )
+
+        .single();
+
+
+    if (error || !data) {
+
+      console.error(
+        'Erro ao carregar artigo:',
+        error
+      );
+
+      mostrarErro();
+
+      return;
+
+    }
+
+
+    /*
+     * PREENCHER A PÁGINA
+     */
+
+    articleMeta.textContent =
+      data.categoria +
+      (
+        data.faixa_etaria
+          ? ' · ' +
+            data.faixa_etaria
+          : ''
+      );
+
+
+    articleTitle.textContent =
+      data.titulo;
+
+
+    articleSummary.textContent =
+      data.resumo || '';
+
+
+    let conteudoFormatado =
+      formatarConteudo(
+        data.conteudo
+      );
+
+    const ehArtigoTeste =
+      String(data.titulo || '')
+        .trim()
+        .toLowerCase() ===
+      'desenvolvimento do bebê: do nascimento aos 3 meses';
+
+    if (ehArtigoTeste) {
+
+      const imagemInteracao = `
+        <figure class="article-illustration">
+          <img
+            src="interacao-bebe.webp"
+            alt="Cuidadora interagindo com o bebê por meio do olhar e do sorriso"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Conversar, sorrir e responder às expressões do bebê fazem parte das interações do dia a dia.
+          </figcaption>
+        </figure>
+      `;
+
+      const imagemTummyTime = `
+        <figure class="article-illustration">
+          <img
+            src="tummy-time.webp"
+            alt="Bebê acordado realizando tempo de bruços sob supervisão de um adulto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Tempo de bruços: sempre com o bebê acordado e sob supervisão.
+          </figcaption>
+        </figure>
+      `;
+
+      /* Insere cada imagem logo após o título da seção correspondente. */
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Como estimular o desenvolvimento\?\s*<\/h2>)/i,
+        '$1' + imagemInteracao
+      );
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Tempo de bruços\s*<\/h2>)/i,
+        '$1' + imagemTummyTime
+      );
+    }
+
+    const ehArtigoQuatroSeis =
+      String(data.titulo || '')
+        .trim()
+        .toLowerCase() ===
+      'desenvolvimento do bebê: dos 4 aos 6 meses';
+
+    if (ehArtigoQuatroSeis) {
+
+      const imagemAlcancar = `
+        <figure class="article-illustration">
+          <img
+            src="bebe-alcancando-brinquedo.webp"
+            alt="Bebê tentando alcançar um brinquedo apropriado para a idade com um adulto por perto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Objetos apropriados para a idade podem incentivar o bebê a olhar, alcançar e explorar.
+          </figcaption>
+        </figure>
+      `;
+
+      const imagemRolar = `
+        <figure class="article-illustration">
+          <img
+            src="bebe-aprendendo-rolar.webp"
+            alt="Bebê praticando movimentos para rolar em um local seguro com supervisão de um adulto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Em um espaço seguro e supervisionado, o bebê pode experimentar movimentos e novas posições.
+          </figcaption>
+        </figure>
+      `;
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Como estimular o desenvolvimento\?\s*<\/h2>)/i,
+        '$1' + imagemAlcancar
+      );
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Incentivando os movimentos\s*<\/h2>)/i,
+        '$1' + imagemRolar
+      );
+    }
+
+    const ehArtigoSeteNove =
+      String(data.titulo || '')
+        .trim()
+        .toLowerCase() ===
+      'desenvolvimento do bebê: dos 7 aos 9 meses';
+
+    if (ehArtigoSeteNove) {
+
+      const imagemProcurar = `
+        <figure class="article-illustration">
+          <img
+            src="bebe-procurando-brinquedo.webp"
+            alt="Bebê sentado procurando um brinquedo parcialmente escondido com um adulto por perto"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Brincadeiras simples de procurar objetos podem estimular a curiosidade e a exploração.
+          </figcaption>
+        </figure>
+      `;
+
+      const imagemComunicacao = `
+        <figure class="article-illustration">
+          <img
+            src="bebe-comunicacao-palmas.webp"
+            alt="Bebê e cuidadora interagindo por meio de palmas, gestos e contato visual"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Sons, gestos, palmas e respostas do cuidador tornam a interação parte da aprendizagem.
+          </figcaption>
+        </figure>
+      `;
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Como estimular o desenvolvimento\?\s*<\/h2>)/i,
+        '$1' + imagemProcurar
+      );
+
+      conteudoFormatado = conteudoFormatado.replace(
+        /(<h2>\s*Comunicação e interação\s*<\/h2>)/i,
+        '$1' + imagemComunicacao
+      );
+    }
+
+    articleBody.innerHTML =
+      conteudoFormatado;
+
+
+    loading.style.display =
+      'none';
+
+
+    articleContainer.style.display =
+      'block';
+
+  }
+
+
+  carregarArtigo();
+
+</script>
+
+
+</body>
+
+</html>
