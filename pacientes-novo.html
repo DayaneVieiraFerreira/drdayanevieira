@@ -1,24 +1,187 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Área dos Pacientes | Dra. Dayane Vieira</title>
-<link rel="preconnect" href="https://pizpvlksxubvlkmyfvbh.supabase.co" crossorigin>
-<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ZmSOF488B_qeSa0kRIT4V6fDk1FxC_2jdH1Zrni-IapnXjGDMpnDt8WIwHM4mDFZsAUxdoheTOeVQnpvpTQjqUfrfcjfA7QIRKlfbKVnDGhJ_2fQY5ff-G4Hujyu_KwfM4zkLKQowbMzBe-2u9PmcM3cWhBD5-2iL9MJqSLs4kh4fK1wvxW5mW5979tZuIAa2lHCiztjfq2j-b2m_enFfe7PH0Y5SqM-oDoa7ofddvSf9OE3JXt4ZtzkymMjt8R65_oxQMwouJ8xIcDwoZC99NLiJ29SWvtqKnBBI_rDUIzyhceBmIrd3V8y5iGMF_0x" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDhmZjg4MjExYjlhOTdmYmE4YWI3NGE2OCZmbj1wYWNpZW50ZXMtbm92by5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk3MjcwJnA9ZnMmY2lkPTEmc2lnPTlmOWYwNjhmMTc4MzA1OGFlYTAzMjJjYTI2NTk1MjIyY2JmZWRkZDIwNTcwNTVmMzJiZjRhYWYxN2RjMGM4MGMmdj0w"/><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#faf8f6;color:#25303b;line-height:1.6}header{background:#fff;border-bottom:1px solid #eee8e4}.wrap{max-width:980px;margin:auto;padding:0 20px}.header{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand b{display:block}.brand small{color:#6c747c}.link,.txt{color:#167a5b;font-weight:700;text-decoration:none;background:none;border:0;cursor:pointer}.screen{display:none}.screen.on{display:block}.login{max-width:430px;margin:45px auto;padding:20px}.box,.panel,.card{background:#fff;border:1px solid #ebe6e2;border-radius:18px}.box{padding:28px}.box h1{text-align:center;margin:5px 0;font-size:28px}.sub{text-align:center;color:#68727a;font-size:14px}label{display:block;font-size:13px;font-weight:700;margin:15px 0 6px}input{width:100%;padding:13px;border:1px solid #dcd8d4;border-radius:10px;font-size:16px}.primary{width:100%;margin-top:20px;padding:14px;border:0;border-radius:10px;background:#167a5b;color:white;font-weight:700}.msg{display:none;margin-top:14px;color:#963636;text-align:center}.page{padding:32px 20px 65px}.tools{display:flex;justify-content:space-between;margin-bottom:20px}.eyebrow{color:#a93d67;font-size:12px;font-weight:800}.head h1{font-size:32px;margin:4px 0;text-align:left}.head p{color:#68727a;margin-top:5px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:24px}.card{padding:21px;text-align:left;cursor:pointer}.card h3{margin:5px 0}.card p{color:#68727a;font-size:14px}.go{color:#167a5b;font-size:13px;font-weight:700}.panel{padding:26px}.article-title{text-align:left;font-size:30px;margin:6px 0}.summary{color:#68727a}.body h2,.body h3{margin-top:28px}.loading{text-align:center;padding:25px;color:#68727a}footer{background:#25303b;color:#fff;text-align:center;padding:23px;font-size:12px}@media(max-width:650px){.brand small{display:none}.grid{grid-template-columns:1fr}.page{padding:25px 16px 50px}.head h1{font-size:27px}.panel{padding:20px 17px}.article-title{font-size:26px}}</style></head>
-<body><header><div class="wrap header"><div class="brand"><b>Dra. Dayane Vieira Ferreira</b><small>Médica Pediatra · CRM-SC 33696 | RQE 22827</small></div><a class="link" href="index.html">← Site</a></div></header><main>
-<section id="login" class="screen on"><div class="login"><div class="box"><h1>🔒 Área dos Pacientes</h1><p class="sub">Conteúdo exclusivo para famílias acompanhadas.</p><form id="form"><label>E-mail</label><input id="email" type="email" autocomplete="email" required><label>Senha</label><input id="password" type="password" autocomplete="current-password" required><button id="enter" class="primary">Entrar</button><div id="msg" class="msg">E-mail ou senha incorretos.</div></form></div></div></section>
-<section id="cats" class="screen"><div class="wrap page"><div class="tools"><span></span><button class="txt out">Sair</button></div><div class="head"><div class="eyebrow">ÁREA EXCLUSIVA</div><h1>Conteúdos para cada fase</h1><p>Escolha um tema.</p></div><div id="catgrid" class="grid"></div></div></section>
-<section id="list" class="screen"><div class="wrap page"><div class="tools"><button id="backcats" class="txt">← Categorias</button><button class="txt out">Sair</button></div><div class="head"><div class="eyebrow">CONTEÚDOS</div><h1 id="cattitle"></h1></div><div id="articles" class="grid"></div></div></section>
-<section id="article" class="screen"><div class="wrap page"><div class="tools"><button id="backlist" class="txt">← Voltar</button><button class="txt out">Sair</button></div><div id="loading" class="loading">Carregando conteúdo...</div><article id="panel" class="panel" style="display:none"><div id="meta" class="eyebrow"></div><h1 id="title" class="article-title"></h1><p id="summary" class="summary"></p><div id="body" class="body"></div></article></div></section>
-</main><footer>© 2026 Dra. Dayane Vieira Ferreira · Pediatria · CRM-SC 33696 | RQE 22827</footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.min.js"></script><script>
-const db=supabase.createClient('https://pizpvlksxubvlkmyfvbh.supabase.co','sb_publishable_2-QUMkZ34aJEG_6ti-qkpg_uGPWYQj8',{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
-const $=x=>document.getElementById(x),screens=['login','cats','list','article'];let rows=[],map=new Map(),current='';
-function show(x){screens.forEach(s=>$(s).classList.toggle('on',s===x));scrollTo(0,0)}
-function esc(v){return String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
-async function metadata(){let {data,error}=await db.from('conteudos').select('id,categoria,titulo,faixa_etaria,resumo,ordem').eq('publicado',true).order('ordem',{ascending:true});if(error)throw error;rows=data||[];map=new Map();rows.forEach(x=>{let c=x.categoria||'Outros';if(!map.has(c))map.set(c,[]);map.get(c).push(x)})}
-function categories(){$('catgrid').innerHTML=[...map].map(([c,a])=>`<button class="card" data-cat="${esc(c)}"><h3>${esc(c)}</h3><p>${a.length} conteúdo(s) disponível(is)</p><span class="go">Ver conteúdos →</span></button>`).join('')}
-async function home(){show('cats');if(!rows.length){$('catgrid').innerHTML='<div class="loading">Carregando conteúdos...</div>';try{await metadata();categories()}catch(e){$('catgrid').innerHTML='<div class="loading">Não foi possível carregar.</div>'}}else categories()}
-function openList(c){current=c;$('cattitle').textContent=c;$('articles').innerHTML=(map.get(c)||[]).map(x=>`<button class="card" data-id="${x.id}"><div class="eyebrow">${esc(x.faixa_etaria||'')}</div><h3>${esc(x.titulo)}</h3><p>${esc(x.resumo||'Conteúdo educativo.')}</p><span class="go">Ler conteúdo →</span></button>`).join('');show('list')}
-async function openArticle(id){show('article');$('loading').style.display='block';$('loading').textContent='Carregando conteúdo...';$('panel').style.display='none';let {data,error}=await db.from('conteudos').select('id,categoria,titulo,faixa_etaria,resumo,conteudo').eq('id',id).eq('publicado',true).single();if(error||!data){$('loading').textContent='Não foi possível carregar este conteúdo.';return}$('meta').textContent=(data.categoria||'')+(data.faixa_etaria?' · '+data.faixa_etaria:'');$('title').textContent=data.titulo||'';$('summary').textContent=data.resumo||'';$('body').innerHTML=data.conteudo||'';$('loading').style.display='none';$('panel').style.display='block'}
-$('form').onsubmit=async e=>{e.preventDefault();$('enter').disabled=true;$('msg').style.display='none';let {error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});$('enter').disabled=false;if(error){$('msg').style.display='block';return}$('form').reset();home()};
-$('catgrid').onclick=e=>{let b=e.target.closest('[data-cat]');if(b)openList(b.dataset.cat)};$('articles').onclick=e=>{let b=e.target.closest('[data-id]');if(b)openArticle(b.dataset.id)};$('backcats').onclick=()=>show('cats');$('backlist').onclick=()=>openList(current);
-document.querySelectorAll('.out').forEach(b=>b.onclick=async()=>{await db.auth.signOut();rows=[];map.clear();show('login')});
-(async()=>{try{let r=await Promise.race([db.auth.getSession(),new Promise((_,rej)=>setTimeout(()=>rej(),3500))]);if(r?.data?.session)home();else show('login')}catch(e){show('login')}})();
-</script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Área dos Pacientes | Dra. Dayane Vieira</title>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TvFpxOX7zmsh1IkICTRlR28149OTn9lcZO16qwlsSUXRbnpdbEuQytH9aR7rbMo28Q5QbKgzuWDWORUtCo6C-RPPF1KFn1lYEZaBUvlBgJ7yZ9C_N0I7VLDYteT5MozxVQHE9iA1T_x9nfWpGME6onvVah_9_AaThidy2J8l1y3XJ1HdquOCb88hK1kKcsNAemC4OLJZtUUYUBfA68rgEY_m0jSvR_y9v90XFN83RDAyjeUqS62SCMJBfNiupIVm68hCrjR40VLKRuPK8ay_SsRvaVBMq8ZjU2oXgUrZAUg1_mILdhCrN2LpiEu-mCh_iR0_3lquQW_VYAyblqngcw" charset="UTF-8"></script><style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#faf8f6;color:#26323b;line-height:1.55}
+header{background:#fff;border-bottom:1px solid #ece7e3}
+.wrap{max-width:900px;margin:auto;padding:0 18px}
+.top{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand strong{display:block}.brand small{color:#69737b}
+a,button{font:inherit}.site,.textbtn{border:0;background:none;color:#167a5b;font-weight:700;text-decoration:none;cursor:pointer}
+.view{display:none}.view.active{display:block}
+.login{max-width:420px;margin:44px auto;padding:0 18px}
+.box,.card,.article{background:#fff;border:1px solid #ebe6e2;border-radius:18px}
+.box{padding:26px}.box h1{text-align:center;margin:4px 0 6px;font-size:27px}.sub{text-align:center;color:#69737b;font-size:14px}
+label{display:block;font-size:13px;font-weight:700;margin:15px 0 6px}
+input{width:100%;padding:13px;border:1px solid #d9d5d1;border-radius:10px;font-size:16px}
+.primary{width:100%;border:0;border-radius:10px;background:#167a5b;color:#fff;padding:14px;margin-top:20px;font-weight:700;cursor:pointer}
+.primary:disabled{opacity:.65}
+.msg{min-height:22px;margin-top:12px;text-align:center;font-size:13px;color:#9b3838}
+.page{padding:28px 18px 55px}.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.kicker{font-size:12px;color:#a93d67;font-weight:800}.title{font-size:30px;margin:4px 0}.muted{color:#69737b}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.card{padding:20px;text-align:left;cursor:pointer}.card h2{font-size:19px;margin:8px 0}.card p{font-size:14px;color:#69737b;margin:5px 0 10px}.emoji{font-size:30px}.go{font-size:13px;color:#167a5b;font-weight:700}
+.article{padding:25px}.article h1{font-size:29px;line-height:1.2;margin:7px 0}.content h2,.content h3{margin-top:26px}
+.status{text-align:center;padding:25px;color:#69737b}
+footer{text-align:center;background:#26323b;color:#fff;padding:22px 15px;font-size:12px}
+@media(max-width:620px){.brand small{display:none}.grid{grid-template-columns:1fr}.title{font-size:26px}.article{padding:19px 16px}.article h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header><div class="wrap top">
+<div class="brand"><strong>Dra. Dayane Vieira Ferreira</strong><small>Médica Pediatra · CRM-SC 33696 | RQE 22827</small></div>
+<a class="site" href="index.html">← Site</a>
+</div></header>
+
+<main>
+<section id="loginView" class="view active">
+ <div class="login"><div class="box">
+  <h1>🔒 Área dos Pacientes</h1>
+  <p class="sub">Conteúdo exclusivo para famílias acompanhadas.</p>
+  <form id="loginForm">
+   <label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required>
+   <label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" required>
+   <button id="loginBtn" class="primary" type="submit">Entrar</button>
+   <div id="loginMsg" class="msg"></div>
+  </form>
+ </div></div>
+</section>
+
+<section id="themesView" class="view"><div class="wrap page">
+ <div class="bar"><span></span><button class="textbtn logout" type="button">Sair</button></div>
+ <div class="kicker">ÁREA EXCLUSIVA</div><h1 class="title">Conteúdos para cada fase</h1><div class="muted">Escolha um tema.</div>
+ <div id="themes" class="grid"></div>
+</div></section>
+
+<section id="listView" class="view"><div class="wrap page">
+ <div class="bar"><button id="toThemes" class="textbtn" type="button">← Temas</button><button class="textbtn logout" type="button">Sair</button></div>
+ <div class="kicker">CONTEÚDOS</div><h1 id="themeTitle" class="title"></h1>
+ <div id="list" class="grid"></div>
+</div></section>
+
+<section id="articleView" class="view"><div class="wrap page">
+ <div class="bar"><button id="toList" class="textbtn" type="button">← Voltar</button><button class="textbtn logout" type="button">Sair</button></div>
+ <div id="articleStatus" class="status">Carregando...</div>
+ <article id="articleBox" class="article" hidden>
+  <div id="articleMeta" class="kicker"></div>
+  <h1 id="articleTitle"></h1>
+  <p id="articleSummary" class="muted"></p>
+  <div id="articleContent" class="content"></div>
+ </article>
+</div></section>
+</main>
+
+<footer>© 2026 Dra. Dayane Vieira Ferreira · Pediatria · CRM-SC 33696 | RQE 22827</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.min.js"></script>
+<script>
+(() => {
+"use strict";
+
+const URL="https://pizpvlksxubvlkmyfvbh.supabase.co";
+const KEY="sb_publishable_2-QUMkZ34aJEG_6ti-qkpg_uGPWYQj8";
+const client=window.supabase.createClient(URL,KEY,{
+ auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}
+});
+
+const ids=["loginView","themesView","listView","articleView"];
+const el=id=>document.getElementById(id);
+let items=[];
+let selectedTheme="";
+
+const icons={
+ "Desenvolvimento":"👶","Alimentação":"🥣","Vacinação":"💉",
+ "Sono":"🌙","Prevenção de acidentes":"🛡️","Quando procurar atendimento":"🩺"
+};
+
+function safe(v){
+ return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function view(id){
+ ids.forEach(x=>el(x).classList.toggle("active",x===id));
+ window.scrollTo(0,0);
+}
+async function loadMetadata(){
+ const {data,error}=await client.from("conteudos")
+  .select("id,categoria,titulo,faixa_etaria,resumo,ordem")
+  .eq("publicado",true).order("ordem",{ascending:true});
+ if(error) throw error;
+ items=data||[];
+}
+function renderThemes(){
+ const groups=new Map();
+ items.forEach(x=>{
+  const c=x.categoria||"Outros";
+  if(!groups.has(c)) groups.set(c,[]);
+  groups.get(c).push(x);
+ });
+ el("themes").innerHTML=[...groups.entries()].map(([name,arr])=>`
+ <button type="button" class="card theme" data-theme="${safe(name)}">
+  <div class="emoji">${icons[name]||"📚"}</div>
+  <h2>${safe(name)}</h2><p>${arr.length} ${arr.length===1?"conteúdo disponível":"conteúdos disponíveis"}</p>
+  <span class="go">Ver conteúdos →</span>
+ </button>`).join("");
+}
+async function enterArea(){
+ view("themesView");
+ el("themes").innerHTML='<div class="status">Carregando conteúdos...</div>';
+ try{await loadMetadata();renderThemes()}
+ catch(err){el("themes").innerHTML='<div class="status">Não foi possível carregar os conteúdos.</div>'}
+}
+function openTheme(name){
+ selectedTheme=name; el("themeTitle").textContent=name;
+ const arr=items.filter(x=>(x.categoria||"Outros")===name);
+ el("list").innerHTML=arr.map(x=>`
+ <button type="button" class="card articleLink" data-id="${x.id}">
+  <div class="kicker">${safe(x.faixa_etaria||"")}</div><h2>${safe(x.titulo)}</h2>
+  <p>${safe(x.resumo||"Conteúdo educativo.")}</p><span class="go">Ler conteúdo →</span>
+ </button>`).join("");
+ view("listView");
+}
+async function openArticle(id){
+ view("articleView"); el("articleBox").hidden=true; el("articleStatus").hidden=false;
+ el("articleStatus").textContent="Carregando conteúdo...";
+ const {data,error}=await client.from("conteudos")
+  .select("categoria,titulo,faixa_etaria,resumo,conteudo")
+  .eq("id",id).eq("publicado",true).single();
+ if(error||!data){el("articleStatus").textContent="Não foi possível carregar este conteúdo.";return}
+ el("articleMeta").textContent=(data.categoria||"")+(data.faixa_etaria?" · "+data.faixa_etaria:"");
+ el("articleTitle").textContent=data.titulo||"";
+ el("articleSummary").textContent=data.resumo||"";
+ el("articleContent").innerHTML=data.conteudo||"";
+ el("articleStatus").hidden=true;el("articleBox").hidden=false;
+}
+el("loginForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ const btn=el("loginBtn"),msg=el("loginMsg");
+ btn.disabled=true;btn.textContent="Entrando...";msg.textContent="";
+ try{
+  const {data,error}=await client.auth.signInWithPassword({
+   email:el("email").value.trim(),password:el("password").value
+  });
+  if(error||!data.session){msg.textContent="E-mail ou senha incorretos.";return}
+  el("loginForm").reset();
+  await enterArea();
+ }catch(err){msg.textContent="Não foi possível entrar. Tente novamente."}
+ finally{btn.disabled=false;btn.textContent="Entrar"}
+});
+el("themes").addEventListener("click",e=>{const b=e.target.closest(".theme");if(b)openTheme(b.dataset.theme)});
+el("list").addEventListener("click",e=>{const b=e.target.closest(".articleLink");if(b)openArticle(b.dataset.id)});
+el("toThemes").onclick=()=>view("themesView");
+el("toList").onclick=()=>openTheme(selectedTheme);
+document.querySelectorAll(".logout").forEach(b=>b.onclick=async()=>{
+ await client.auth.signOut();items=[];selectedTheme="";view("loginView");
+});
+(async()=>{
+ try{
+  const {data}=await client.auth.getSession();
+  if(data.session) await enterArea(); else view("loginView");
+ }catch(e){view("loginView")}
+})();
+})();
+</script>
+</body></html>
