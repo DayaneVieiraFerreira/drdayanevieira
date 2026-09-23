@@ -8,9 +8,8 @@
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://pizpvlksxubvlkmyfvbh.supabase.co" crossorigin>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <style>
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=s4bfJrn0fIisyjIfWBt27TedkuaUcmhF26M2WeRmY4oeZu2ocEUYNDMuJTAiXjrIWZ3-S8TiIIKwU4EusPQd98kTbkD2lDmsb7947hvlkKl-hUAKyj3DZZcbA81sY_ISfMDerSqLyB1p7IlhQkXkkGE-tNKedf-8a8GDXEyj0ywYbKJ_r_2nWJ_n8AX4xdjEQ1QndoBwqhdTSFAjffDJUOmoHqjWHheDdJEhEVyBjpsp3YYEp_KVrJHrU3wuxrdoJZNkkASV9N5CqvWGGByhb9xfi4DW84ptY5L5f_UV6q_DYnDBekx3UEExCxibEOXUFplkYxOOpYcOBaB8lT75pQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDE1YmM4MjBlOWQxNmIxMzAxMDQzNzM3MiZmbj1wYWNpZW50ZXNfbW9iaWxlX2NvcnJpZ2lkby5odG1sJmNkPWF0dGFjaG1lbnQmdHM9NDk3MjU2JnA9ZnMmY2lkPTEmc2lnPTlmOTU1MzUzMTYyNDFhNjAwZTcyZTdhZjlkNTBiNWNkYWVmNTAyMGVkZjRmNWU4NjBjYmEzOGZlNTA1MTQ2NzUmdj0w"/><style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -571,6 +570,8 @@
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.min.js"></script>
+
 <script>
 
   /* CONFIGURAÇÃO DO SUPABASE */
@@ -789,16 +790,42 @@
 
   async function checkSession() {
 
-    const { data } =
-      await supabaseClient.auth.getSession();
+    try {
 
+      const sessionResult = await Promise.race([
 
-    if (data.session) {
+        supabaseClient.auth.getSession(),
 
-      await showPatientArea();
+        new Promise((_, reject) =>
+          setTimeout(
+            () => reject(new Error('Tempo limite ao verificar sessão')),
+            5000
+          )
+        )
 
-    } else {
+      ]);
 
+      const session =
+        sessionResult?.data?.session || null;
+
+      if (session) {
+
+        await showPatientArea();
+
+      } else {
+
+        showLogin();
+
+      }
+
+    } catch (error) {
+
+      console.warn(
+        'Não foi possível restaurar a sessão rapidamente:',
+        error
+      );
+
+      /* Em caso de lentidão no celular, mostra o login em vez de travar a tela. */
       showLogin();
 
     }
@@ -888,26 +915,6 @@
 
     }
   );
-
-
-  /* ALTERAÇÃO DA SESSÃO */
-
-  supabaseClient.auth.onAuthStateChange(
-    function(event, session) {
-
-      if (session) {
-
-        showPatientArea();
-
-      } else {
-
-        showLogin();
-
-      }
-
-    }
-  );
-
 
   /* INICIAR */
 
