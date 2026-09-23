@@ -6,9 +6,7 @@
 
   <title>Área dos Pacientes | Dra. Dayane Vieira</title>
 
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://pizpvlksxubvlkmyfvbh.supabase.co" crossorigin>
-  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=NzIB9WNOTQjvnhMaMRhx4SHXz7J_8m7ExTh_lbmUnLMUZC_j7ps_3lMP71tK9WR0ZVhsb2apg2sCL5OK7Emsmh4fg9d04bey15alCXSeqKvr5WwBEYF_9vsduUt010CBPdudZXauKeXtugdUePXwF-TZk2KMpCTYmrl-PpYGaw_oxi_brCI5DeXqqan0fZnM7tceuqtKq62C6xwBNSvfdzJaOiVpIDSBKXIBijDndngNeuLkW_KSVA9vRB7u0c8Vi-0lPvJLVOn48BVrWx-MvisBWNpaCKejNoNABM8uObtspEU1U8v0rCR0d0YARNfVpc0pJbVieXFRAK1mzGntqg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDBkMjg4MjBlYTlkNGVlMGI5MTM4MGVmNiZmbj1yZXN0YXVyYXJfcGFjaWVudGVzLmh0bWwmY2Q9YXR0YWNobWVudCZ0cz00OTcyNTYmcD1mcyZjaWQ9MSZzaWc9NDA1NjQyMTQ2MzA5MzBjNGQ4ODU0OWZiYTg4Yjc5OWUyNjMwODViMTU1NGI3ZWMwY2IxMDM2MDIzNjcwMjQwNCZ2PTA"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iWN8XXbNAHLaNKjIc6yOE2-X6d3swOBkVWA2rEKFs0DlCbbAkWSRUqw7i_dU3TJdQ3nAvjm01r0VMGamDI1kX1h9fb4NIQ_VDP4-jYncPCHuhQT607K-B77Cmea4elRRgY4Dj8JOzc8jQaIxy9andXS9Tw6WHelR4wy2VD7hmCUgmxNMvqGUKriWWc7WupIa7wNqQJ8dpXXDACaJAopOlHL9LWwq1tBRDOEF4aZBQdkd_KcudS235TXsJpwXdI96IjXN1oLr7mvmQlMQeGUzf8ehVFopeFwazY1xCrLmVkjR_hH3Yh8l6QZsywUgXwe7" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMGMxZDA4MjBlYTUxY2VlMzc5NGE4MTM4YyZmbj1wYWNpZW50ZXMuaHRtbCZjZD1hdHRhY2htZW50JnRzPTQ5NzI1MSZwPWZzJmNpZD0xJnNpZz00Y2Y4ZWE4NTgyODJhZTU3MTIyZDgxYjlmNzMxOGNkZDk5ODZmMTJlNTJkZmMyMzJkNTY4OTY0YTBmNjY2YTliJnY9MA"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     * {
@@ -721,7 +719,7 @@
 
   async function carregarConteudos() {
     conteudosGrid.innerHTML = '<div class="content-message">Carregando conteúdos...</div>';
-    const { data, error } = await supabaseClient.from('conteudos').select('id, categoria, titulo, faixa_etaria, resumo, ordem').eq('publicado', true).order('ordem', { ascending:true });
+    const { data, error } = await supabaseClient.from('conteudos').select('id, categoria, titulo, faixa_etaria, resumo, conteudo, ordem').eq('publicado', true).order('ordem', { ascending:true });
     if (error) { console.error('Erro ao carregar conteúdos:', error); conteudosGrid.innerHTML = '<div class="content-message">Não foi possível carregar os conteúdos agora. Tente novamente em alguns instantes.</div>'; return; }
     todosConteudos = data || [];
     mostrarCategorias();
@@ -731,32 +729,20 @@
 
   /* MOSTRAR ÁREA DO PACIENTE */
 
-  let conteudosCarregados = false;
-  let carregamentoEmAndamento = null;
-
   async function showPatientArea() {
 
     loginArea.style.display = 'none';
+
     patientArea.style.display = 'block';
+
     publicHeader.style.display = 'none';
+
     patientHeader.style.display = 'flex';
 
-    if (conteudosCarregados) {
-      mostrarCategorias();
-      return;
-    }
 
-    if (!carregamentoEmAndamento) {
-      carregamentoEmAndamento = carregarConteudos()
-        .then(function() {
-          conteudosCarregados = true;
-        })
-        .finally(function() {
-          carregamentoEmAndamento = null;
-        });
-    }
+    /* SOMENTE AGORA BUSCAMOS O CONTEÚDO */
 
-    await carregamentoEmAndamento;
+    await carregarConteudos();
 
   }
 
