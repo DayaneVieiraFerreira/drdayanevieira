@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biblioteca Pediátrica | Dra. Dayane Vieira</title>
+<meta name="description" content="Conteúdos pediátricos educativos para famílias, organizados por temas e preparados com base em fontes médicas confiáveis.">
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#fbf8f4;--card:#fff;--ink:#352f2d;--muted:#746b67;--wine:#784b50;--rose:#ead9d5;--sage:#5f766b;--soft:#edf3ef;--line:#eadfd8;--shadow:0 12px 30px rgba(70,48,43,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif;line-height:1.55}.wrap{width:min(100% - 28px,980px);margin:auto}
+header{padding:18px 0;border-bottom:1px solid var(--line)}.brand{font-family:Georgia,serif;font-size:19px}.brand small{display:block;font:11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.hero{padding:44px 0 26px}.eyebrow{font-size:12px;font-weight:bold;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+h1,h2,h3{font-family:Georgia,serif;font-weight:500;line-height:1.1;margin:0}h1{font-size:clamp(40px,8vw,66px);margin-top:8px}h2{font-size:clamp(28px,6vw,40px)}h3{font-size:22px}
+.lead{font-size:18px;color:var(--muted);max-width:720px}.search{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;padding:4px 6px 4px 15px;box-shadow:var(--shadow)}
+.search span{font-size:21px}.search input{width:100%;border:0;outline:0;background:transparent;padding:15px 10px;font-size:16px;color:var(--ink)}
+section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.cat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;min-height:138px;box-shadow:var(--shadow);text-decoration:none;color:inherit}.cat .icon{font-size:31px;margin-bottom:12px}.cat b{display:block;font-family:Georgia,serif;font-size:20px;font-weight:500}.cat span{display:block;color:var(--muted);font-size:14px;margin-top:6px}
+.feature{margin-top:18px;background:linear-gradient(145deg,#f4e7e2,#edf3ef);border-radius:24px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.feature .thermo{font-size:68px}.feature p{color:var(--muted);margin:8px 0 15px}.btn{display:inline-block;text-decoration:none;background:var(--wine);color:#fff;padding:12px 16px;border-radius:999px;font-weight:bold;font-size:14px}
+.info{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.info-item{background:var(--bg);border-radius:16px;padding:16px}.info-item b{display:block;margin-bottom:5px}.info-item span{font-size:14px;color:var(--muted)}
+.empty{display:none;margin-top:16px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:16px;border-radius:16px}
+.note{background:#f3ece8;border-radius:20px;padding:19px;font-size:14px;margin-top:18px}footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:13px}
+@media(max-width:650px){.hero{padding-top:30px}.lead{font-size:16px}.categories{grid-template-columns:1fr 1fr}.cat{min-height:150px;padding:16px}.feature{grid-template-columns:1fr}.feature .thermo{display:none}.info-grid{grid-template-columns:1fr}}
+@media(max-width:390px){.categories{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">Dra. Dayane Vieira<small>Biblioteca Pediátrica para famílias</small></div></div></header>
+
+<main>
+<div class="wrap hero">
+<div class="eyebrow">Informação confiável para famílias</div>
+<h1>Biblioteca Pediátrica</h1>
+<p class="lead">Orientações simples e didáticas para ajudar pais e responsáveis a entender melhor situações comuns da infância — sempre com base em referências médicas reconhecidas.</p>
+<div class="search"><span>⌕</span><input id="search" type="search" placeholder="Pesquisar febre, sono, alimentação..." aria-label="Pesquisar na biblioteca"></div>
+<div id="empty" class="empty">Nenhum conteúdo encontrado para essa busca. A biblioteca ainda está crescendo.</div>
+</div>
+
+<section><div class="wrap">
+<div class="eyebrow">Explore por assunto</div><h2>O que você procura?</h2>
+<div class="categories" id="categories">
+<a class="cat" href="#artigos" data-search="bebê recém-nascido cuidados cólica choro umbigo banho"><div class="icon">👶</div><b>Bebê</b><span>Cuidados e dúvidas dos primeiros meses.</span></a>
+<a class="cat" href="#artigos" data-search="alimentação introdução alimentar seletividade água comida"><div class="icon">🥣</div><b>Alimentação</b><span>Introdução alimentar e hábitos saudáveis.</span></a>
+<a class="cat" href="#artigos" data-search="sono rotina dormir despertares higiene do sono"><div class="icon">🌙</div><b>Sono</b><span>Rotina, despertares e sono infantil.</span></a>
+<a class="cat" href="#artigos" data-search="febre sintomas tosse coriza vômito diarreia gripe"><div class="icon">🌡️</div><b>Febre e sintomas</b><span>O que observar e sinais de atenção.</span></a>
+<a class="cat" href="#artigos" data-search="crescimento desenvolvimento linguagem marcos peso altura"><div class="icon">🌱</div><b>Crescimento e desenvolvimento</b><span>Marcos e acompanhamento de cada fase.</span></a>
+<a class="cat" href="#artigos" data-search="prevenção segurança acidentes vacinação higiene"><div class="icon">🛡️</div><b>Prevenção e segurança</b><span>Cuidados para uma infância mais segura.</span></a>
+<a class="cat" href="#artigos" data-search="urgência emergência procurar atendimento sinais alerta pronto socorro"><div class="icon">🚨</div><b>Quando procurar atendimento</b><span>Sinais que merecem avaliação médica.</span></a>
+<a class="cat" href="#artigos" data-search="dúvidas frequentes pediatra consulta família perguntas"><div class="icon">💬</div><b>Dúvidas frequentes</b><span>Respostas para perguntas comuns das famílias.</span></a>
+</div>
+</div></section>
+
+<section id="artigos"><div class="wrap">
+<div class="eyebrow">Comece por aqui</div><h2>Conteúdo em destaque</h2>
+<article class="feature" data-search="febre criança temperatura antitérmico sinais alerta">
+<div><h3>Febre em crianças</h3><p>Entenda o que observar, quais cuidados podem ser feitos em casa e quando a criança precisa de avaliação médica.</p>
+<a class="btn" href="febre-em-criancas.html">Ler artigo</a></div><div class="thermo">🌡️</div>
+</article>
+</div></section>
+
+<section><div class="wrap">
+<div class="info">
+<div class="eyebrow">Nosso padrão</div><h2 style="margin-top:6px">Informação que ajuda, sem substituir a consulta</h2>
+<div class="info-grid">
+<div class="info-item"><b>📚 Fontes reconhecidas</b><span>Prioridade para SBP, Ministério da Saúde, diretrizes e literatura científica confiável.</span></div>
+<div class="info-item"><b>🧩 Linguagem simples</b><span>Conteúdo médico transformado em orientação compreensível para famílias.</span></div>
+<div class="info-item"><b>🔎 Revisão identificada</b><span>Cada artigo informa suas referências e a data da última revisão.</span></div>
+</div>
+</div>
+<div class="note"><b>Importante:</b> os conteúdos desta biblioteca têm finalidade educativa e não substituem consulta, diagnóstico ou avaliação médica individualizada. Diante de sinais de alerta ou piora clínica, procure atendimento.</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Biblioteca Pediátrica • Dra. Dayane Vieira Ferreira<br>Conteúdo educativo para pais e responsáveis.</div></footer>
+
+<script>
+const input=document.getElementById('search'), items=[...document.querySelectorAll('[data-search]')], empty=document.getElementById('empty');
+input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();let visible=0;items.forEach(el=>{const ok=!q||(el.dataset.search+' '+el.innerText).toLowerCase().includes(q);el.style.display=ok?'':'none';if(ok)visible++});empty.style.display=visible?'none':'block'});
+</script>
+</body></html>
