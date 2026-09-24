@@ -20,6 +20,23 @@ section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1
 .note{background:#f3ece8;border-radius:20px;padding:19px;font-size:14px;margin-top:18px}footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:13px}
 @media(max-width:650px){.hero{padding-top:30px}.lead{font-size:16px}.categories{grid-template-columns:1fr 1fr}.cat{min-height:150px;padding:16px}.feature{grid-template-columns:1fr}.feature .thermo{display:none}.info-grid{grid-template-columns:1fr}}
 @media(max-width:390px){.categories{grid-template-columns:1fr}}
+
+/*  */
+.assuntos-teste{margin:24px 0 42px}.assuntos-teste .intro{color:var(--muted);margin-top:-6px}
+.assunto{background:#fff;border:1px solid var(--line);border-radius:18px;margin:11px 0;overflow:hidden}
+.assunto summary{list-style:none;cursor:pointer;padding:18px;display:flex;align-items:center;gap:12px;font-weight:800}
+.assunto summary::-webkit-details-marker{display:none}.assunto .emoji{font-size:24px;width:34px;text-align:center}
+.assunto .nome{flex:1}.assunto .qtd{font-size:12px;font-weight:600;color:var(--muted)}
+.assunto .seta{color:var(--muted)}.assunto[open] .seta{transform:rotate(180deg)}
+.lista-artigos{padding:0 16px 16px;display:grid;gap:8px}.item-artigo{display:block;text-decoration:none;color:inherit;border-top:1px solid var(--line);padding:14px 2px 6px}
+.item-artigo strong{display:block;margin-bottom:4px}.item-artigo span,.vazio{font-size:14px;color:var(--muted)}
+.vazio{padding:0 18px 17px}.teste-nota{padding:12px 15px;background:#fff;border:1px dashed var(--line);border-radius:14px;margin-bottom:20px;font-size:13px;color:var(--muted)}
+@media(min-width:720px){.lista-artigos{grid-template-columns:1fr 1fr}}
+
+.assunto-vazio{opacity:.64}
+.summary-static{padding:18px;display:flex;align-items:center;gap:12px;font-weight:800}
+.summary-static .emoji{font-size:24px;width:34px;text-align:center}
+.summary-static .nome{flex:1}.summary-static .qtd{font-size:12px;font-weight:600;color:var(--muted)}
 </style>
 
 <style>
@@ -51,70 +68,27 @@ section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1
 </div>
 
 
-<section class="artigos-biblioteca" id="artigos">
-  <div class="wrap">
-    <div class="artigos-cabecalho">
-      <div class="eyebrow">Conteúdos da biblioteca</div>
-      <h2>Artigos para famílias</h2>
-      <p>Orientações pediátricas em linguagem simples para consultar quando precisar.</p>
-    </div>
-    <div class="artigos-grid">
-      <a class="artigo-card" href="febre-em-criancas.html" data-search="febre criança temperatura sintomas antitérmico sinais alerta">
-        <div class="icone">🌡️</div><div class="categoria">FEBRE E SINTOMAS</div>
-        <h3>Febre em crianças</h3>
-        <p>Entenda o que observar, como cuidar em casa e quais sinais indicam quando procurar atendimento.</p>
-        <span class="ler">Ler artigo →</span>
-      </a>
-      <a class="artigo-card" href="tosse-em-criancas.html" data-search="tosse criança respiração sintomas resfriado sinais alerta">
-        <div class="icone">🫁</div><div class="categoria">FEBRE E SINTOMAS</div>
-        <h3>Tosse em crianças</h3>
-        <p>O que observar na respiração, cuidados gerais e sinais que merecem avaliação médica.</p>
-        <span class="ler">Ler artigo →</span>
-      </a>
-      <a class="artigo-card" href="diarreia-e-vomitos-em-criancas.html" data-search="diarreia vômitos vomito criança hidratação desidratação sintomas sinais alerta">
-        <div class="icone">💧</div><div class="categoria">FEBRE E SINTOMAS</div>
-        <h3>Diarreia e vômitos em crianças</h3>
-        <p>Como cuidar da hidratação, acompanhar a evolução e reconhecer sinais de alerta.</p>
-        <span class="ler">Ler artigo →</span>
-      </a>
-    <a class="artigo-card" href="nariz-entupido-e-coriza-em-criancas.html" data-search="nariz entupido coriza resfriado secreção nasal rinite alergia">
-<div class="icone">🤧</div><div class="categoria">FEBRE E SINTOMAS</div>
-<h3>Nariz entupido e coriza</h3>
-<p>Como aliviar o desconforto, entender a secreção nasal e reconhecer quando procurar atendimento.</p>
-<span class="ler">Ler artigo →</span>
-</a>
-<a class="artigo-card" href="dor-de-garganta-em-criancas.html" data-search="dor de garganta faringite amigdalite estreptococo febre engolir">
-<div class="icone">🗣️</div><div class="categoria">FEBRE E SINTOMAS</div>
-<h3>Dor de garganta em crianças</h3>
-<p>Principais causas, cuidados para aliviar o desconforto e quando procurar atendimento.</p>
-<span class="ler">Ler artigo →</span>
-</a>
-<a class="artigo-card" href="otite-em-criancas.html" data-search="otite ouvido dor de ouvido febre secreção audição otite média otite externa">
-<div class="icone">👂</div><div class="categoria">FEBRE E SINTOMAS</div>
-<h3>Otite em crianças</h3>
-<p>Como reconhecer os sinais, entender os tipos de otite e saber quando procurar o pediatra.</p>
-<span class="ler">Ler artigo →</span>
-</a>
-</div>
-  </div>
-</section>
+<section class="assuntos-teste">
+<div class="eyebrow">Biblioteca por temas</div><h2>Explore por assunto</h2>
+<p class="intro">Toque em um assunto para abrir os conteúdos disponíveis.</p>
 
+<details class="assunto"><summary><span class="emoji">🌡️</span><span class="nome">Febre e sintomas</span><span class="qtd">5 artigos</span><span class="seta">⌄</span></summary>
+<div class="lista-artigos">
+<a class="item-artigo" href="febre-em-criancas.html"><strong>Febre em crianças</strong><span>O que observar e quando procurar atendimento.</span></a>
+<a class="item-artigo" href="tosse-em-criancas.html"><strong>Tosse em crianças</strong><span>Cuidados, causas frequentes e sinais de alerta.</span></a>
+<a class="item-artigo" href="nariz-entupido-e-coriza-em-criancas.html"><strong>Nariz entupido e coriza</strong><span>Como aliviar o desconforto e quando avaliar.</span></a>
+<a class="item-artigo" href="dor-de-garganta-em-criancas.html"><strong>Dor de garganta em crianças</strong><span>Causas, cuidados e quando procurar o pediatra.</span></a>
+<a class="item-artigo" href="otite-em-criancas.html"><strong>Otite em crianças</strong><span>Dor de ouvido, tipos de otite e sinais de alerta.</span></a>
+</div></details>
 
-<section><div class="wrap">
-<div class="eyebrow">Explore por assunto</div><h2>O que você procura?</h2>
-<div class="categories" id="categories">
-<a class="cat" href="#artigos" data-search="bebê recém-nascido cuidados cólica choro umbigo banho"><div class="icon">👶</div><b>Bebê</b><span>Cuidados e dúvidas dos primeiros meses.</span></a>
-<a class="cat" href="#artigos" data-search="alimentação introdução alimentar seletividade água comida"><div class="icon">🥣</div><b>Alimentação</b><span>Introdução alimentar e hábitos saudáveis.</span></a>
-<a class="cat" href="#artigos" data-search="sono rotina dormir despertares higiene do sono"><div class="icon">🌙</div><b>Sono</b><span>Rotina, despertares e sono infantil.</span></a>
-<a class="cat" href="#artigos" data-search="febre sintomas tosse coriza vômito diarreia gripe"><div class="icon">🌡️</div><b>Febre e sintomas</b><span>O que observar e sinais de atenção.</span></a>
-<a class="cat" href="#artigos" data-search="crescimento desenvolvimento linguagem marcos peso altura"><div class="icon">🌱</div><b>Crescimento e desenvolvimento</b><span>Marcos e acompanhamento de cada fase.</span></a>
-<a class="cat" href="#artigos" data-search="prevenção segurança acidentes vacinação higiene"><div class="icon">🛡️</div><b>Prevenção e segurança</b><span>Cuidados para uma infância mais segura.</span></a>
-<a class="cat" href="#artigos" data-search="urgência emergência procurar atendimento sinais alerta pronto socorro"><div class="icon">🚨</div><b>Quando procurar atendimento</b><span>Sinais que merecem avaliação médica.</span></a>
-<a class="cat" href="#artigos" data-search="dúvidas frequentes pediatra consulta família perguntas"><div class="icon">💬</div><b>Dúvidas frequentes</b><span>Respostas para perguntas comuns das famílias.</span></a>
-</div>
-</div></section>
+<details class="assunto"><summary><span class="emoji">🍎</span><span class="nome">Alimentação e saúde intestinal</span><span class="qtd">1 artigo</span><span class="seta">⌄</span></summary>
+<div class="lista-artigos"><a class="item-artigo" href="diarreia-e-vomitos-em-criancas.html"><strong>Diarreia e vômitos em crianças</strong><span>Hidratação, alimentação e sinais de alerta.</span></a></div></details>
 
-<section><div class="wrap">
+<div class="assunto assunto-vazio"><div class="summary-static"><span class="emoji">👶</span><span class="nome">Bebê</span><span class="qtd">em breve</span></div></div>
+<div class="assunto assunto-vazio"><div class="summary-static"><span class="emoji">😴</span><span class="nome">Sono</span><span class="qtd">em breve</span></div></div>
+<div class="assunto assunto-vazio"><div class="summary-static"><span class="emoji">🧸</span><span class="nome">Crescimento e desenvolvimento</span><span class="qtd">em breve</span></div></div>
+<div class="assunto assunto-vazio"><div class="summary-static"><span class="emoji">🛡️</span><span class="nome">Prevenção e segurança</span><span class="qtd">em breve</span></div></div>
+</section><section><div class="wrap">
 <div class="info">
 <div class="eyebrow">Nosso padrão</div><h2 style="margin-top:6px">Informação que ajuda, sem substituir a consulta</h2>
 <div class="info-grid">
