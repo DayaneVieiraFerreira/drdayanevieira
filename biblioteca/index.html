@@ -21,6 +21,22 @@ section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1
 @media(max-width:650px){.hero{padding-top:30px}.lead{font-size:16px}.categories{grid-template-columns:1fr 1fr}.cat{min-height:150px;padding:16px}.feature{grid-template-columns:1fr}.feature .thermo{display:none}.info-grid{grid-template-columns:1fr}}
 @media(max-width:390px){.categories{grid-template-columns:1fr}}
 </style>
+
+<style>
+.artigos-biblioteca{padding:34px 0}
+.artigos-biblioteca .artigos-cabecalho{margin-bottom:18px}
+.artigos-biblioteca .artigos-cabecalho h2{margin:0 0 7px;font-size:28px;line-height:1.15}
+.artigos-biblioteca .artigos-cabecalho p{margin:0;color:#70686b}
+.artigos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.artigo-card{display:flex;flex-direction:column;padding:20px;border:1px solid #eadfda;border-radius:18px;background:#fff;text-decoration:none;color:#302b2d;box-shadow:0 8px 24px rgba(70,45,50,.05)}
+.artigo-card .icone{font-size:29px;margin-bottom:10px}
+.artigo-card .categoria{font-size:11px;font-weight:800;letter-spacing:.08em;color:#7b3145;margin-bottom:7px}
+.artigo-card h3{font-size:20px;line-height:1.2;margin:0 0 8px}
+.artigo-card p{font-size:14px;line-height:1.5;color:#70686b;margin:0 0 16px}
+.artigo-card .ler{margin-top:auto;font-size:14px;font-weight:800;color:#7b3145}
+@media(max-width:720px){.artigos-grid{grid-template-columns:1fr}.artigo-card{padding:18px}.artigos-biblioteca{padding:28px 0}}
+</style>
+
 </head>
 <body>
 <header><div class="wrap"><div class="brand">Dra. Dayane Vieira<small>Biblioteca Pediátrica para famílias</small></div></div></header>
@@ -69,6 +85,37 @@ section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1
 </div></section>
 </main>
 
+
+
+<section class="artigos-biblioteca" id="artigos">
+  <div class="artigos-cabecalho">
+    <h2>Artigos para famílias</h2>
+    <p>Informações pediátricas em linguagem simples para consultar quando precisar.</p>
+  </div>
+  <div class="artigos-grid">
+    <a class="artigo-card" href="febre-em-criancas.html">
+      <div class="icone">🌡️</div>
+      <div class="categoria">FEBRE E SINTOMAS</div>
+      <h3>Febre em crianças</h3>
+      <p>Entenda o que observar, como cuidar em casa e quais sinais indicam quando procurar atendimento.</p>
+      <span class="ler">Ler artigo →</span>
+    </a>
+    <a class="artigo-card" href="tosse-em-criancas.html">
+      <div class="icone">🫁</div>
+      <div class="categoria">FEBRE E SINTOMAS</div>
+      <h3>Tosse em crianças</h3>
+      <p>O que observar na respiração, cuidados gerais e sinais que merecem avaliação médica.</p>
+      <span class="ler">Ler artigo →</span>
+    </a>
+    <a class="artigo-card" href="diarreia-e-vomitos-em-criancas.html">
+      <div class="icone">💧</div>
+      <div class="categoria">FEBRE E SINTOMAS</div>
+      <h3>Diarreia e vômitos</h3>
+      <p>Como cuidar da hidratação, acompanhar a evolução e reconhecer sinais de alerta.</p>
+      <span class="ler">Ler artigo →</span>
+    </a>
+  </div>
+</section>
 
 <article class="article-card" style="margin-top:18px;">
   <div class="eyebrow">FEBRE E SINTOMAS</div>
