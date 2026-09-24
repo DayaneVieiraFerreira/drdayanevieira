@@ -37,6 +37,78 @@ section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1
 .summary-static{padding:18px;display:flex;align-items:center;gap:12px;font-weight:800}
 .summary-static .emoji{font-size:24px;width:34px;text-align:center}
 .summary-static .nome{flex:1}.summary-static .qtd{font-size:12px;font-weight:600;color:var(--muted)}
+
+/* ===== Biblioteca Pediátrica — proposta visual premium ===== */
+:root{
+  --premium-ink:#26332f;
+  --premium-muted:#6f7b76;
+  --premium-paper:#fbfaf7;
+  --premium-card:#ffffff;
+  --premium-soft:#f3f6f2;
+  --premium-line:#e5e9e4;
+  --premium-accent:#506b60;
+  --premium-warm:#f6eee9;
+  --premium-radius:24px;
+}
+body{
+  background:linear-gradient(180deg,#fbfaf7 0,#f8faf7 45%,#fff 100%) !important;
+  color:var(--premium-ink) !important;
+}
+header{background:rgba(255,255,255,.92)!important;backdrop-filter:blur(12px);border-bottom:1px solid var(--premium-line)!important}
+.hero{padding-top:68px!important;padding-bottom:54px!important}
+.hero .wrap{max-width:920px!important}
+.hero h1{font-size:clamp(34px,6vw,58px)!important;line-height:1.04!important;letter-spacing:-.035em!important;max-width:760px}
+.hero p{font-size:17px!important;line-height:1.7!important;max-width:680px;color:var(--premium-muted)!important}
+.eyebrow{letter-spacing:.12em!important;text-transform:uppercase;font-size:11px!important;font-weight:800!important;color:var(--premium-accent)!important}
+.search,.searchbox,.search-box{
+  background:#fff!important;border:1px solid var(--premium-line)!important;
+  border-radius:18px!important;box-shadow:0 12px 36px rgba(38,51,47,.07)!important;
+}
+.assuntos-teste{max-width:920px;margin:10px auto 56px!important}
+.assuntos-teste h2{font-size:clamp(27px,4vw,38px)!important;letter-spacing:-.025em;margin-bottom:8px!important}
+.assuntos-teste .intro{font-size:16px!important;line-height:1.6;color:var(--premium-muted)!important;margin-bottom:24px!important}
+.assunto{
+  border:1px solid var(--premium-line)!important;border-radius:var(--premium-radius)!important;
+  margin:14px 0!important;background:rgba(255,255,255,.96)!important;
+  box-shadow:0 5px 22px rgba(38,51,47,.035);transition:.2s ease;
+}
+.assunto:not(.assunto-vazio):hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(38,51,47,.065)}
+.assunto summary{padding:22px 24px!important;gap:15px!important}
+.assunto .emoji,.summary-static .emoji{
+  display:grid!important;place-items:center;width:46px!important;height:46px!important;
+  border-radius:15px;background:var(--premium-soft);font-size:22px!important;flex:0 0 46px;
+}
+.assunto .nome,.summary-static .nome{font-size:16px;font-weight:750!important;letter-spacing:-.01em}
+.assunto .qtd,.summary-static .qtd{
+  padding:6px 10px;border-radius:999px;background:var(--premium-soft);
+  color:var(--premium-muted)!important;font-size:11px!important;white-space:nowrap
+}
+.assunto .seta{font-size:20px;padding-left:4px}
+.lista-artigos{padding:0 24px 22px!important;gap:12px!important}
+.item-artigo{
+  border:0!important;background:var(--premium-paper);border-radius:16px;padding:16px 17px!important;
+  transition:.18s ease
+}
+.item-artigo:hover{background:var(--premium-soft);transform:translateY(-1px)}
+.item-artigo strong{font-size:15px;line-height:1.35;margin-bottom:6px!important}
+.item-artigo span{font-size:13px!important;line-height:1.5!important;color:var(--premium-muted)!important}
+.assunto-vazio{opacity:1!important;background:transparent!important;border-style:dashed!important;box-shadow:none!important}
+.summary-static{padding:18px 22px!important}
+.assunto-vazio .emoji{background:#f6f6f3!important;filter:grayscale(.25)}
+.assunto-vazio .nome{color:#7b8581}
+.assunto-vazio .qtd{background:#f4f4f1}
+.section{padding-top:58px!important;padding-bottom:58px!important}
+footer{border-top:1px solid var(--premium-line)!important;background:#fff!important}
+@media(max-width:640px){
+  .hero{padding-top:42px!important;padding-bottom:34px!important}
+  .hero h1{font-size:36px!important}
+  .assuntos-teste{margin-top:0!important}
+  .assunto summary{padding:17px!important;gap:11px!important}
+  .assunto .emoji,.summary-static .emoji{width:42px!important;height:42px!important;flex-basis:42px}
+  .assunto .qtd,.summary-static .qtd{font-size:10px!important;padding:5px 8px}
+  .lista-artigos{grid-template-columns:1fr!important;padding:0 14px 15px!important}
+  .summary-static{padding:16px!important}
+}
 </style>
 
 <style>
@@ -69,7 +141,7 @@ section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1
 
 
 <section class="assuntos-teste">
-<div class="eyebrow">Biblioteca por temas</div><h2>Explore por assunto</h2>
+<div class="eyebrow">Conteúdo para famílias</div><h2>Explore por assunto</h2>
 <p class="intro">Toque em um assunto para abrir os conteúdos disponíveis.</p>
 
 <details class="assunto"><summary><span class="emoji">🌡️</span><span class="nome">Febre e sintomas</span><span class="qtd">5 artigos</span><span class="seta">⌄</span></summary>
