@@ -198,3 +198,34 @@ article h2{scroll-margin-top:110px}
   .quick{padding:18px;margin-bottom:27px}.quick p{font-size:16px}
   .cta{padding:22px 20px}.cta h2{font-size:21px}
 }
+
+
+/* ===== Ajustes finais V2 ===== */
+
+/* O título do próprio box já explica sua função; remove rótulos redundantes */
+.alert::after,
+.remember::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Refinamento dos boxes */
+.alert strong:first-child{
+  display:inline;
+  color:#8d332e;
+  font-weight:850;
+}
+.remember h2{
+  margin:0 0 8px;
+  font-size:20px;
+  color:#314b38;
+}
+
+/* CTA final mais direto */
+.cta a{
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.cta a:hover{
+  transform:translateY(-1px);
+  box-shadow:0 7px 20px rgba(0,0,0,.10);
+}
