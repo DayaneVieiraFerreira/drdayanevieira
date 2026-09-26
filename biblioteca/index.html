@@ -197,7 +197,30 @@ footer{border-top:1px solid var(--premium-line)!important;background:#fff!import
 <footer><div class="wrap">Biblioteca Pediátrica • Dra. Dayane Vieira Ferreira<br>Conteúdo educativo para pais e responsáveis.</div></footer>
 
 <script>
-const input=document.getElementById('search'), items=[...document.querySelectorAll('[data-search]')], empty=document.getElementById('empty');
-input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();let visible=0;items.forEach(el=>{const ok=!q||(el.dataset.search+' '+el.innerText).toLowerCase().includes(q);el.style.display=ok?'':'none';if(ok)visible++});empty.style.display=visible?'none':'block'});
+const input=document.getElementById('search');
+const items=[...document.querySelectorAll('.item-artigo')];
+const grupos=[...document.querySelectorAll('details.assunto')];
+const empty=document.getElementById('empty');
+
+input.addEventListener('input',()=>{
+  const q=input.value.trim().toLowerCase();
+  let visible=0;
+
+  items.forEach(el=>{
+    const ok=!q||el.innerText.toLowerCase().includes(q);
+    el.style.display=ok?'':'none';
+    if(ok) visible++;
+  });
+
+  grupos.forEach(grupo=>{
+    const artigos=[...grupo.querySelectorAll('.item-artigo')];
+    const temVisivel=artigos.some(a=>a.style.display!=='none');
+    grupo.style.display=temVisivel?'':'none';
+    if(q && temVisivel) grupo.open=true;
+    if(!q) grupo.open=false;
+  });
+
+  empty.style.display=visible?'none':'block';
+});
 </script>
 </body></html>
