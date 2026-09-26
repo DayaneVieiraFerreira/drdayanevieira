@@ -133,3 +133,68 @@ footer{
   .callout,.alert,.remember{padding:20px 18px 20px 54px;border-radius:15px}
   .callout:before,.alert:before,.remember:before{left:17px;top:20px;width:25px;height:25px}
 }
+
+
+/* ===== V2: guia médico mais didático ===== */
+.hero{padding-bottom:28px}
+.meta{
+  display:flex;flex-wrap:wrap;gap:9px;margin-top:22px
+}
+.meta span{
+  display:inline-flex;align-items:center;gap:6px;padding:7px 11px;
+  border:1px solid #eadde1;border-radius:999px;background:#fff;
+  color:#675b5f;font-size:12px;font-weight:700
+}
+.quick{
+  margin:0 0 34px;padding:22px 24px;border-radius:18px;
+  background:#f8f2f4;border:1px solid #ead9df
+}
+.quick .quick-label{
+  display:block;margin-bottom:7px;color:var(--wine);font-size:12px;
+  font-weight:900;letter-spacing:.08em;text-transform:uppercase
+}
+.quick p{margin:0;font-size:17px;font-weight:650;color:#3c3437}
+article h2{scroll-margin-top:110px}
+.alert:before{content:"!"}
+.alert::after{
+  content:"Quando procurar atendimento";display:block;margin:0 0 8px;
+  color:#8d332e;font-size:13px;font-weight:900;text-transform:uppercase;
+  letter-spacing:.055em
+}
+.alert{padding-top:21px}
+.alert strong:first-child{font-weight:800}
+.remember::after{
+  content:"Mensagem principal";display:block;margin:0 0 5px;
+  color:#52715b;font-size:11px;font-weight:900;text-transform:uppercase;
+  letter-spacing:.06em
+}
+.remember h2{margin-top:0}
+.article-nav{
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  margin-top:36px;padding-top:24px;border-top:1px solid var(--line)
+}
+.article-nav a{
+  text-decoration:none;font-size:14px;font-weight:800
+}
+.cta{
+  margin-top:42px;padding:27px 28px;border-radius:20px;
+  background:linear-gradient(135deg,#6d293d,#84384e);color:#fff
+}
+.cta .cta-kicker{
+  display:block;margin-bottom:5px;font-size:11px;font-weight:900;
+  letter-spacing:.09em;text-transform:uppercase;opacity:.78
+}
+.cta h2{margin:0 0 8px;color:#fff;font-size:23px}
+.cta h2:before{display:none}
+.cta p{margin:0 0 17px;color:#fff;opacity:.9;font-size:15px}
+.cta a{
+  display:inline-flex;text-decoration:none;background:#fff;color:#6d293d;
+  padding:10px 15px;border-radius:999px;font-weight:850;font-size:14px
+}
+.sources{font-size:12.5px;opacity:.9}
+.sources p{font-size:12.5px}
+@media(max-width:700px){
+  .meta{margin-top:17px}.meta span{font-size:11px;padding:6px 9px}
+  .quick{padding:18px;margin-bottom:27px}.quick p{font-size:16px}
+  .cta{padding:22px 20px}.cta h2{font-size:21px}
+}
