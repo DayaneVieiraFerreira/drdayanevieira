@@ -1,203 +1,143 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
+<html lang="pt-BR"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Biblioteca Pediátrica | Dra. Dayane Vieira</title>
-<meta name="description" content="Conteúdos pediátricos educativos para famílias, organizados por temas e preparados com base em fontes médicas confiáveis.">
-<meta name="robots" content="noindex,nofollow">
+<title>Biblioteca Pediátrica | Dra. Dayane Vieira Ferreira</title>
+<meta name="description" content="Orientações pediátricas para pais e responsáveis sobre febre, tosse, alimentação, sono, amamentação, recém-nascido e cuidados com o bebê.">
 <style>
-:root{--bg:#fbf8f4;--card:#fff;--ink:#352f2d;--muted:#746b67;--wine:#784b50;--rose:#ead9d5;--sage:#5f766b;--soft:#edf3ef;--line:#eadfd8;--shadow:0 12px 30px rgba(70,48,43,.07)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif;line-height:1.55}.wrap{width:min(100% - 28px,980px);margin:auto}
-header{padding:18px 0;border-bottom:1px solid var(--line)}.brand{font-family:Georgia,serif;font-size:19px}.brand small{display:block;font:11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.hero{padding:44px 0 26px}.eyebrow{font-size:12px;font-weight:bold;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
-h1,h2,h3{font-family:Georgia,serif;font-weight:500;line-height:1.1;margin:0}h1{font-size:clamp(40px,8vw,66px);margin-top:8px}h2{font-size:clamp(28px,6vw,40px)}h3{font-size:22px}
-.lead{font-size:18px;color:var(--muted);max-width:720px}.search{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;padding:4px 6px 4px 15px;box-shadow:var(--shadow)}
-.search span{font-size:21px}.search input{width:100%;border:0;outline:0;background:transparent;padding:15px 10px;font-size:16px;color:var(--ink)}
-section{padding:30px 0}.categories{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.cat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;min-height:138px;box-shadow:var(--shadow);text-decoration:none;color:inherit}.cat .icon{font-size:31px;margin-bottom:12px}.cat b{display:block;font-family:Georgia,serif;font-size:20px;font-weight:500}.cat span{display:block;color:var(--muted);font-size:14px;margin-top:6px}
-.feature{margin-top:18px;background:linear-gradient(145deg,#f4e7e2,#edf3ef);border-radius:24px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.feature .thermo{font-size:68px}.feature p{color:var(--muted);margin:8px 0 15px}.btn{display:inline-block;text-decoration:none;background:var(--wine);color:#fff;padding:12px 16px;border-radius:999px;font-weight:bold;font-size:14px}
-.info{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.info-item{background:var(--bg);border-radius:16px;padding:16px}.info-item b{display:block;margin-bottom:5px}.info-item span{font-size:14px;color:var(--muted)}
-.empty{display:none;margin-top:16px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:16px;border-radius:16px}
-.note{background:#f3ece8;border-radius:20px;padding:19px;font-size:14px;margin-top:18px}footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:13px}
-@media(max-width:650px){.hero{padding-top:30px}.lead{font-size:16px}.categories{grid-template-columns:1fr 1fr}.cat{min-height:150px;padding:16px}.feature{grid-template-columns:1fr}.feature .thermo{display:none}.info-grid{grid-template-columns:1fr}}
-@media(max-width:390px){.categories{grid-template-columns:1fr}}
-
-/*  */
-.assuntos-teste{margin:24px 0 42px}.assuntos-teste .intro{color:var(--muted);margin-top:-6px}
-.assunto{background:#fff;border:1px solid var(--line);border-radius:18px;margin:11px 0;overflow:hidden}
-.assunto summary{list-style:none;cursor:pointer;padding:18px;display:flex;align-items:center;gap:12px;font-weight:800}
-.assunto summary::-webkit-details-marker{display:none}.assunto .emoji{font-size:24px;width:34px;text-align:center}
-.assunto .nome{flex:1}.assunto .qtd{font-size:12px;font-weight:600;color:var(--muted)}
-.assunto .seta{color:var(--muted)}.assunto[open] .seta{transform:rotate(180deg)}
-.lista-artigos{padding:0 16px 16px;display:grid;gap:8px}.item-artigo{display:block;text-decoration:none;color:inherit;border-top:1px solid var(--line);padding:14px 2px 6px}
-.item-artigo strong{display:block;margin-bottom:4px}.item-artigo span,.vazio{font-size:14px;color:var(--muted)}
-.vazio{padding:0 18px 17px}.teste-nota{padding:12px 15px;background:#fff;border:1px dashed var(--line);border-radius:14px;margin-bottom:20px;font-size:13px;color:var(--muted)}
-@media(min-width:720px){.lista-artigos{grid-template-columns:1fr 1fr}}
-
-.assunto-vazio{opacity:.64}
-.summary-static{padding:18px;display:flex;align-items:center;gap:12px;font-weight:800}
-.summary-static .emoji{font-size:24px;width:34px;text-align:center}
-.summary-static .nome{flex:1}.summary-static .qtd{font-size:12px;font-weight:600;color:var(--muted)}
-
-/* ===== Biblioteca Pediátrica — proposta visual premium ===== */
-:root{
-  --premium-ink:#26332f;
-  --premium-muted:#6f7b76;
-  --premium-paper:#fbfaf7;
-  --premium-card:#ffffff;
-  --premium-soft:#f3f6f2;
-  --premium-line:#e5e9e4;
-  --premium-accent:#506b60;
-  --premium-warm:#f6eee9;
-  --premium-radius:24px;
-}
-body{
-  background:linear-gradient(180deg,#fbfaf7 0,#f8faf7 45%,#fff 100%) !important;
-  color:var(--premium-ink) !important;
-}
-header{background:rgba(255,255,255,.92)!important;backdrop-filter:blur(12px);border-bottom:1px solid var(--premium-line)!important}
-.hero{padding-top:68px!important;padding-bottom:54px!important}
-.hero .wrap{max-width:920px!important}
-.hero h1{font-size:clamp(34px,6vw,58px)!important;line-height:1.04!important;letter-spacing:-.035em!important;max-width:760px}
-.hero p{font-size:17px!important;line-height:1.7!important;max-width:680px;color:var(--premium-muted)!important}
-.eyebrow{letter-spacing:.12em!important;text-transform:uppercase;font-size:11px!important;font-weight:800!important;color:var(--premium-accent)!important}
-.search,.searchbox,.search-box{
-  background:#fff!important;border:1px solid var(--premium-line)!important;
-  border-radius:18px!important;box-shadow:0 12px 36px rgba(38,51,47,.07)!important;
-}
-.assuntos-teste{max-width:920px;margin:10px auto 56px!important}
-.assuntos-teste h2{font-size:clamp(27px,4vw,38px)!important;letter-spacing:-.025em;margin-bottom:8px!important}
-.assuntos-teste .intro{font-size:16px!important;line-height:1.6;color:var(--premium-muted)!important;margin-bottom:24px!important}
-.assunto{
-  border:1px solid var(--premium-line)!important;border-radius:var(--premium-radius)!important;
-  margin:14px 0!important;background:rgba(255,255,255,.96)!important;
-  box-shadow:0 5px 22px rgba(38,51,47,.035);transition:.2s ease;
-}
-.assunto:not(.assunto-vazio):hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(38,51,47,.065)}
-.assunto summary{padding:22px 24px!important;gap:15px!important}
-.assunto .emoji,.summary-static .emoji{
-  display:grid!important;place-items:center;width:46px!important;height:46px!important;
-  border-radius:15px;background:var(--premium-soft);font-size:22px!important;flex:0 0 46px;
-}
-.assunto .nome,.summary-static .nome{font-size:16px;font-weight:750!important;letter-spacing:-.01em}
-.assunto .qtd,.summary-static .qtd{
-  padding:6px 10px;border-radius:999px;background:var(--premium-soft);
-  color:var(--premium-muted)!important;font-size:11px!important;white-space:nowrap
-}
-.assunto .seta{font-size:20px;padding-left:4px}
-.lista-artigos{padding:0 24px 22px!important;gap:12px!important}
-.item-artigo{
-  border:0!important;background:var(--premium-paper);border-radius:16px;padding:16px 17px!important;
-  transition:.18s ease
-}
-.item-artigo:hover{background:var(--premium-soft);transform:translateY(-1px)}
-.item-artigo strong{font-size:15px;line-height:1.35;margin-bottom:6px!important}
-.item-artigo span{font-size:13px!important;line-height:1.5!important;color:var(--premium-muted)!important}
-.assunto-vazio{opacity:1!important;background:transparent!important;border-style:dashed!important;box-shadow:none!important}
-.summary-static{padding:18px 22px!important}
-.assunto-vazio .emoji{background:#f6f6f3!important;filter:grayscale(.25)}
-.assunto-vazio .nome{color:#7b8581}
-.assunto-vazio .qtd{background:#f4f4f1}
-.section{padding-top:58px!important;padding-bottom:58px!important}
-footer{border-top:1px solid var(--premium-line)!important;background:#fff!important}
-@media(max-width:640px){
-  .hero{padding-top:42px!important;padding-bottom:34px!important}
-  .hero h1{font-size:36px!important}
-  .assuntos-teste{margin-top:0!important}
-  .assunto summary{padding:17px!important;gap:11px!important}
-  .assunto .emoji,.summary-static .emoji{width:42px!important;height:42px!important;flex-basis:42px}
-  .assunto .qtd,.summary-static .qtd{font-size:10px!important;padding:5px 8px}
-  .lista-artigos{grid-template-columns:1fr!important;padding:0 14px 15px!important}
-  .summary-static{padding:16px!important}
-}
-</style>
-
-<style>
-.artigos-biblioteca{padding:34px 0}
-.artigos-biblioteca .artigos-cabecalho{margin-bottom:18px}
-.artigos-biblioteca .artigos-cabecalho h2{margin:0 0 7px;font-size:28px;line-height:1.15}
-.artigos-biblioteca .artigos-cabecalho p{margin:0;color:#70686b}
-.artigos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.artigo-card{display:flex;flex-direction:column;padding:20px;border:1px solid #eadfda;border-radius:18px;background:#fff;text-decoration:none;color:#302b2d;box-shadow:0 8px 24px rgba(70,45,50,.05)}
-.artigo-card .icone{font-size:29px;margin-bottom:10px}
-.artigo-card .categoria{font-size:11px;font-weight:800;letter-spacing:.08em;color:#7b3145;margin-bottom:7px}
-.artigo-card h3{font-size:20px;line-height:1.2;margin:0 0 8px}
-.artigo-card p{font-size:14px;line-height:1.5;color:#70686b;margin:0 0 16px}
-.artigo-card .ler{margin-top:auto;font-size:14px;font-weight:800;color:#7b3145}
-@media(max-width:720px){.artigos-grid{grid-template-columns:1fr}.artigo-card{padding:18px}.artigos-biblioteca{padding:28px 0}}
-</style>
-
-</head>
-<body>
-<header><div class="wrap"><div class="brand">Dra. Dayane Vieira<small>Biblioteca Pediátrica para famílias</small></div></div></header>
-
-<main>
-<div class="wrap hero">
-<div class="eyebrow">Informação confiável para famílias</div>
-<h1>Biblioteca Pediátrica</h1>
-<p class="lead">Orientações simples e didáticas para ajudar pais e responsáveis a entender melhor situações comuns da infância — sempre com base em referências médicas reconhecidas.</p>
-<div class="search"><span>⌕</span><input id="search" type="search" placeholder="Pesquisar febre, sono, alimentação..." aria-label="Pesquisar na biblioteca"></div>
-<div id="empty" class="empty">Nenhum conteúdo encontrado para essa busca. A biblioteca ainda está crescendo.</div>
-</div>
-
-
-<section class="assuntos-teste">
-<div class="eyebrow">Conteúdo para famílias</div><h2>Explore por assunto</h2>
-<p class="intro">Toque em um assunto para abrir os conteúdos disponíveis.</p>
-
-<details class="assunto"><summary><span class="emoji">🌡️</span><span class="nome">Febre e sintomas</span><span class="qtd">5 artigos</span><span class="seta">⌄</span></summary>
-<div class="lista-artigos">
-<a class="item-artigo" href="febre-em-criancas.html"><strong>Febre em crianças</strong><span>O que observar e quando procurar atendimento.</span></a>
-<a class="item-artigo" href="tosse-em-criancas.html"><strong>Tosse em crianças</strong><span>Cuidados, causas frequentes e sinais de alerta.</span></a>
-<a class="item-artigo" href="nariz-entupido-e-coriza-em-criancas.html"><strong>Nariz entupido e coriza</strong><span>Como aliviar o desconforto e quando avaliar.</span></a>
-<a class="item-artigo" href="dor-de-garganta-em-criancas.html"><strong>Dor de garganta em crianças</strong><span>Causas, cuidados e quando procurar o pediatra.</span></a>
-<a class="item-artigo" href="otite-em-criancas.html"><strong>Otite em crianças</strong><span>Dor de ouvido, tipos de otite e sinais de alerta.</span></a>
-</div></details>
-
-<details class="assunto"><summary><span class="emoji">🍎</span><span class="nome">Alimentação e saúde intestinal</span><span class="qtd">4 artigos</span><span class="seta">⌄</span></summary>
-<div class="lista-artigos"><a class="item-artigo" href="diarreia-e-vomitos-em-criancas.html"><strong>Diarreia e vômitos em crianças</strong><span>Hidratação, alimentação e sinais de alerta.</span></a>
-<a class="item-artigo" href="constipacao-intestinal-em-criancas.html"><strong>Constipação intestinal em crianças</strong><span>Fezes duras, retenção, hábitos e quando procurar o pediatra.</span></a>
-<a class="item-artigo" href="dor-de-barriga-em-criancas.html"><strong>Dor de barriga em crianças</strong><span>Causas comuns, o que observar e quando procurar atendimento.</span></a>
-<a class="item-artigo" href="introducao-alimentar-quando-e-como-comecar.html">
-  <strong>Introdução alimentar: quando e como começar</strong>
-  <span>Quando iniciar, quais alimentos oferecer, textura, autonomia e segurança.</span>
-</a></div></details>
-
-<details class="assunto"><summary><span class="emoji">👶</span><span class="nome">Bebê</span><span class="qtd">9 artigos</span><span class="seta">⌄</span></summary><div class="lista-artigos">
-<a class="item-artigo" href="colicas-no-bebe.html"><strong>Cólicas no bebê</strong><span>O que é esperado, como aliviar e quando procurar o pediatra.</span></a>
-<a class="item-artigo" href="refluxo-no-bebe.html"><strong>Refluxo no bebê</strong><span>Golfadas, refluxo fisiológico, sinais de alerta e quando avaliar.</span></a>
-
-<a class="item-artigo" href="assaduras-no-bebe.html"><strong>Assaduras no bebê</strong><span>Cuidados com a pele, prevenção e quando procurar o pediatra.</span></a>
-
-<a class="item-artigo" href="coto-umbilical.html"><strong>Coto umbilical</strong><span>Cuidados diários, o que observar e sinais de alerta.</span></a>
-
-<a class="item-artigo" href="sono-seguro-do-bebe.html"><strong>Sono seguro do bebê</strong><span>Posição, ambiente de sono e medidas importantes de segurança.</span></a>
-
-<a class="item-artigo" href="solucos-e-espirros-no-recem-nascido.html"><strong>Soluços e espirros no recém-nascido</strong><span>O que costuma ser esperado e quais sinais merecem avaliação.</span></a>
-<a class="item-artigo" href="amamentacao-pega-e-mamada-eficaz.html"><strong>Amamentação: pega e sinais de uma mamada eficaz</strong><span>Como observar a pega, a mamada e quando procurar ajuda.</span></a>
-<a class="item-artigo" href="primeiros-dentes-do-bebe.html"><strong>Primeiros dentes do bebê: higiene e cuidados</strong><span>Higiene oral, primeiros dentes e quando procurar avaliação.</span></a>
-<a class="item-artigo" href="choro-do-bebe-o-que-pode-significar.html"><strong>Choro do bebê: o que pode significar e sinais de alerta</strong><span>Causas comuns, conforto e sinais que merecem avaliação.</span></a>
-</div>
-</details>
-<div class="assunto assunto-vazio"><div class="summary-static"><span class="emoji">😴</span><span class="nome">Sono</span><span class="qtd">em breve</span></div></div>
-<div class="assunto assunto-vazio"><div class="summary-static"><span class="emoji">🧸</span><span class="nome">Crescimento e desenvolvimento</span><span class="qtd">em breve</span></div></div>
-<div class="assunto assunto-vazio"><div class="summary-static"><span class="emoji">🛡️</span><span class="nome">Prevenção e segurança</span><span class="qtd">em breve</span></div></div>
-</section><section><div class="wrap">
-<div class="info">
-<div class="eyebrow">Nosso padrão</div><h2 style="margin-top:6px">Informação que ajuda, sem substituir a consulta</h2>
-<div class="info-grid">
-<div class="info-item"><b>📚 Fontes reconhecidas</b><span>Prioridade para SBP, Ministério da Saúde, diretrizes e literatura científica confiável.</span></div>
-<div class="info-item"><b>🧩 Linguagem simples</b><span>Conteúdo médico transformado em orientação compreensível para famílias.</span></div>
-<div class="info-item"><b>🔎 Revisão identificada</b><span>Cada artigo informa suas referências e a data da última revisão.</span></div>
-</div>
-</div>
-<div class="note"><b>Importante:</b> os conteúdos desta biblioteca têm finalidade educativa e não substituem consulta, diagnóstico ou avaliação médica individualizada. Diante de sinais de alerta ou piora clínica, procure atendimento.</div>
-</div></section>
-</main>
-
-<footer><div class="wrap">Biblioteca Pediátrica • Dra. Dayane Vieira Ferreira<br>Conteúdo educativo para pais e responsáveis.</div></footer>
-
+:root{--wine:#7b3145;--wine2:#5f2435;--rose:#f8eff2;--ink:#292427;--muted:#70676a;--line:#eadfda;--page:#fbf8f6;--white:#fff;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--page);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line)}.top{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:20px;font-weight:850;color:var(--wine2)}.brand small{display:block;margin-top:6px;font-size:12px;font-weight:550;color:var(--muted)}.site{font-size:13px;font-weight:800;color:var(--wine);text-decoration:none}
+.hero{padding:72px 0 46px;background:linear-gradient(135deg,#fff 0%,#fff 58%,#faf1f4 100%);border-bottom:1px solid var(--line)}
+.kicker{color:var(--wine);font-size:12px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,6vw,70px);line-height:1.02;letter-spacing:-.03em;margin:12px 0 18px;max-width:760px}
+.hero p{max-width:700px;color:#62595c;font-size:18px;line-height:1.7;margin:0}
+.searchbox{margin-top:32px;display:flex;align-items:center;gap:10px;max-width:690px;padding:9px 10px 9px 18px;background:#fff;border:1px solid #e7d9de;border-radius:16px;box-shadow:0 12px 34px rgba(78,45,55,.07)}
+.searchbox span{font-size:19px}#search{width:100%;border:0;outline:0;background:transparent;padding:11px 0;font:inherit;font-size:16px;color:var(--ink)}#clear{display:none;border:0;background:var(--rose);color:var(--wine);font-weight:850;border-radius:10px;padding:9px 12px;cursor:pointer}
+.stats{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:13px}.stats strong{color:var(--wine2)}
+main{padding:48px 0 70px}.intro{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:30px}.intro h2{font-family:Georgia,"Times New Roman",serif;font-size:31px;margin:0}.intro p{margin:0;color:var(--muted);font-size:14px}
+.category{margin-top:42px}.category-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:11px;margin-bottom:17px}.category-head span{color:var(--wine);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.category-head small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{display:flex;flex-direction:column;min-height:238px;padding:24px;border:1px solid var(--line);border-radius:20px;background:#fff;text-decoration:none;color:inherit;box-shadow:0 8px 28px rgba(74,47,55,.035);transition:.18s ease}
+.card:hover{transform:translateY(-3px);border-color:#d9bec7;box-shadow:0 15px 38px rgba(74,47,55,.08)}.card-tag{font-size:10px;font-weight:900;letter-spacing:.075em;text-transform:uppercase;color:var(--wine)}.card h2{font-family:Georgia,"Times New Roman",serif;font-size:24px;line-height:1.12;margin:13px 0 10px}.card p{color:#6d6366;font-size:14px;line-height:1.6;margin:0 0 20px}.read{margin-top:auto;color:var(--wine);font-size:13px;font-weight:850}.read b{font-size:16px}
+.empty{display:none;padding:35px;border:1px dashed #d8c7cc;border-radius:18px;background:#fff;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--ink);font-size:18px;margin-bottom:5px}
+.note{margin-top:55px;padding:24px 26px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--muted);font-size:13px;line-height:1.7}
+footer{border-top:1px solid var(--line);background:#fff;padding:28px 0 38px;color:var(--muted);font-size:13px;line-height:1.7}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.wrap{width:min(100% - 24px,1120px)}.top{min-height:70px}.brand{font-size:17px}.brand small{font-size:10.5px}.site{font-size:12px}.hero{padding:44px 0 34px}h1{font-size:43px}.hero p{font-size:16px}.searchbox{margin-top:24px}main{padding-top:34px}.intro{display:block}.intro p{margin-top:8px}.grid{grid-template-columns:1fr}.card{min-height:auto;padding:21px}.card h2{font-size:23px}.category{margin-top:34px}}
+</style></head><body>
+<header><div class="wrap top"><div class="brand">Dra. Dayane Vieira Ferreira<small>Pediatra | CRM-SC 33696 | RQE Pediatria 22827</small></div><a class="site" href="../index.html">← Site principal</a></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Biblioteca Pediátrica</div><h1>Informação confiável para cuidar com mais segurança.</h1><p>Orientações em linguagem clara para ajudar pais e responsáveis a entender sintomas comuns, cuidados em casa e sinais que merecem avaliação pediátrica.</p>
+<div class="searchbox"><span>⌕</span><input id="search" type="search" autocomplete="off" placeholder="Busque por febre, tosse, refluxo, sono..."><button id="clear" type="button">Limpar</button></div>
+<div class="stats"><span><strong>18</strong> orientações</span><span>Conteúdo educativo</span><span>Leitura pensada para famílias</span></div></div></section>
+<main><div class="wrap"><div class="intro"><div><div class="kicker">Explore por assunto</div><h2>Cuidados pediátricos no dia a dia</h2></div><p>Selecione um tema ou use a busca acima.</p></div>
+<div id="empty" class="empty"><strong>Nenhum conteúdo encontrado</strong>Tente outra palavra, como “febre”, “bebê”, “sono” ou “alimentação”.</div>
+<div id="content"><section class="category" data-category="Febre e sintomas"><div class="category-head"><span>Febre e sintomas</span><small>5 conteúdos</small></div><div class="grid"><a class="card" href="febre-em-criancas.html" data-search="febre em crianças febre e sintomas como observar a febre, cuidar em casa e reconhecer sinais de alerta.">
+          <span class="card-tag">Febre e sintomas</span>
+          <h2>Febre em crianças</h2>
+          <p>Como observar a febre, cuidar em casa e reconhecer sinais de alerta.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="tosse-em-criancas.html" data-search="tosse em crianças febre e sintomas o que costuma causar tosse e quando a respiração precisa de avaliação.">
+          <span class="card-tag">Febre e sintomas</span>
+          <h2>Tosse em crianças</h2>
+          <p>O que costuma causar tosse e quando a respiração precisa de avaliação.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="nariz-entupido-e-coriza-em-criancas.html" data-search="nariz entupido e coriza febre e sintomas cuidados com congestão nasal, secreção e higiene nasal.">
+          <span class="card-tag">Febre e sintomas</span>
+          <h2>Nariz entupido e coriza</h2>
+          <p>Cuidados com congestão nasal, secreção e higiene nasal.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="dor-de-garganta-em-criancas.html" data-search="dor de garganta em crianças febre e sintomas diferenças entre causas virais e bacterianas e quando procurar atendimento.">
+          <span class="card-tag">Febre e sintomas</span>
+          <h2>Dor de garganta em crianças</h2>
+          <p>Diferenças entre causas virais e bacterianas e quando procurar atendimento.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="otite-em-criancas.html" data-search="dor de ouvido em crianças febre e sintomas por que a dor de ouvido precisa de exame antes de definir o tratamento.">
+          <span class="card-tag">Febre e sintomas</span>
+          <h2>Dor de ouvido em crianças</h2>
+          <p>Por que a dor de ouvido precisa de exame antes de definir o tratamento.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section><section class="category" data-category="Saúde intestinal"><div class="category-head"><span>Saúde intestinal</span><small>3 conteúdos</small></div><div class="grid"><a class="card" href="diarreia-e-vomitos-em-criancas.html" data-search="diarreia e vômitos em crianças saúde intestinal hidratação, alimentação e os principais sinais de desidratação.">
+          <span class="card-tag">Saúde intestinal</span>
+          <h2>Diarreia e vômitos em crianças</h2>
+          <p>Hidratação, alimentação e os principais sinais de desidratação.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="constipacao-intestinal-em-criancas.html" data-search="constipação intestinal em crianças saúde intestinal como reconhecer prisão de ventre e interromper o ciclo de retenção.">
+          <span class="card-tag">Saúde intestinal</span>
+          <h2>Constipação intestinal em crianças</h2>
+          <p>Como reconhecer prisão de ventre e interromper o ciclo de retenção.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="dor-de-barriga-em-criancas.html" data-search="dor de barriga em crianças saúde intestinal causas frequentes e sinais que indicam necessidade de avaliação.">
+          <span class="card-tag">Saúde intestinal</span>
+          <h2>Dor de barriga em crianças</h2>
+          <p>Causas frequentes e sinais que indicam necessidade de avaliação.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section><section class="category" data-category="Alimentação"><div class="category-head"><span>Alimentação</span><small>1 conteúdo</small></div><div class="grid"><a class="card" href="introducao-alimentar-quando-e-como-comecar.html" data-search="introdução alimentar alimentação quando começar, texturas, segurança e alimentos que devem ser evitados.">
+          <span class="card-tag">Alimentação</span>
+          <h2>Introdução alimentar</h2>
+          <p>Quando começar, texturas, segurança e alimentos que devem ser evitados.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section><section class="category" data-category="Bebê"><div class="category-head"><span>Bebê</span><small>4 conteúdos</small></div><div class="grid"><a class="card" href="colicas-no-bebe.html" data-search="cólicas no bebê bebê o que pode ajudar e quais sinais não devem ser atribuídos apenas à cólica.">
+          <span class="card-tag">Bebê</span>
+          <h2>Cólicas no bebê</h2>
+          <p>O que pode ajudar e quais sinais não devem ser atribuídos apenas à cólica.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="refluxo-no-bebe.html" data-search="refluxo no bebê bebê regurgitação fisiológica, sinais de alerta e orientações para sono seguro.">
+          <span class="card-tag">Bebê</span>
+          <h2>Refluxo no bebê</h2>
+          <p>Regurgitação fisiológica, sinais de alerta e orientações para sono seguro.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="assaduras-no-bebe.html" data-search="assaduras no bebê bebê como proteger a pele e quando uma assadura precisa ser avaliada.">
+          <span class="card-tag">Bebê</span>
+          <h2>Assaduras no bebê</h2>
+          <p>Como proteger a pele e quando uma assadura precisa ser avaliada.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="choro-do-bebe-o-que-pode-significar.html" data-search="choro do bebê bebê o que o choro pode comunicar e quais sinais precisam de avaliação.">
+          <span class="card-tag">Bebê</span>
+          <h2>Choro do bebê</h2>
+          <p>O que o choro pode comunicar e quais sinais precisam de avaliação.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section><section class="category" data-category="Recém-nascido"><div class="category-head"><span>Recém-nascido</span><small>2 conteúdos</small></div><div class="grid"><a class="card" href="coto-umbilical.html" data-search="coto umbilical recém-nascido cuidados simples com o umbigo e sinais de infecção.">
+          <span class="card-tag">Recém-nascido</span>
+          <h2>Coto umbilical</h2>
+          <p>Cuidados simples com o umbigo e sinais de infecção.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a><a class="card" href="solucos-e-espirros-no-recem-nascido.html" data-search="soluços e espirros no recém-nascido recém-nascido o que costuma ser normal e quais alterações respiratórias merecem atenção.">
+          <span class="card-tag">Recém-nascido</span>
+          <h2>Soluços e espirros no recém-nascido</h2>
+          <p>O que costuma ser normal e quais alterações respiratórias merecem atenção.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section><section class="category" data-category="Bebê e segurança"><div class="category-head"><span>Bebê e segurança</span><small>1 conteúdo</small></div><div class="grid"><a class="card" href="sono-seguro-do-bebe.html" data-search="sono seguro do bebê bebê e segurança posição, berço e ambiente para um sono mais seguro.">
+          <span class="card-tag">Bebê e segurança</span>
+          <h2>Sono seguro do bebê</h2>
+          <p>Posição, berço e ambiente para um sono mais seguro.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section><section class="category" data-category="Amamentação"><div class="category-head"><span>Amamentação</span><small>1 conteúdo</small></div><div class="grid"><a class="card" href="amamentacao-pega-e-mamada-eficaz.html" data-search="amamentação: pega e mamada eficaz amamentação sinais de boa pega, transferência de leite e quando buscar ajuda.">
+          <span class="card-tag">Amamentação</span>
+          <h2>Amamentação: pega e mamada eficaz</h2>
+          <p>Sinais de boa pega, transferência de leite e quando buscar ajuda.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section><section class="category" data-category="Saúde bucal"><div class="category-head"><span>Saúde bucal</span><small>1 conteúdo</small></div><div class="grid"><a class="card" href="primeiros-dentes-do-bebe.html" data-search="primeiros dentes do bebê saúde bucal higiene desde o primeiro dente e cuidados durante a dentição.">
+          <span class="card-tag">Saúde bucal</span>
+          <h2>Primeiros dentes do bebê</h2>
+          <p>Higiene desde o primeiro dente e cuidados durante a dentição.</p>
+          <span class="read">Ler orientação <b>→</b></span>
+        </a></div></section></div>
+<div class="note"><strong>Importante:</strong> esta Biblioteca tem finalidade educativa e não substitui consulta, diagnóstico ou avaliação médica individualizada. Em situações de urgência ou diante de sinais de alerta, procure atendimento adequado.</div>
+</div></main>
+<footer><div class="wrap"><strong>Dra. Dayane Vieira Ferreira</strong><br>Pediatra | CRM-SC 33696 | RQE Pediatria 22827</div></footer>
 <script>
-const input=document.getElementById('search'), items=[...document.querySelectorAll('[data-search]')], empty=document.getElementById('empty');
-input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();let visible=0;items.forEach(el=>{const ok=!q||(el.dataset.search+' '+el.innerText).toLowerCase().includes(q);el.style.display=ok?'':'none';if(ok)visible++});empty.style.display=visible?'none':'block'});
-</script>
-</body></html>
+const input=document.getElementById('search'), clearBtn=document.getElementById('clear'), empty=document.getElementById('empty');
+const cards=[...document.querySelectorAll('.card')], cats=[...document.querySelectorAll('.category')];
+function filter(){
+ const q=input.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+ let visible=0;
+ cards.forEach(card=>{
+   const hay=card.dataset.search.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+   const show=!q||hay.includes(q); card.style.display=show?'flex':'none'; if(show) visible++;
+ });
+ cats.forEach(cat=>{cat.style.display=[...cat.querySelectorAll('.card')].some(c=>c.style.display!=='none')?'block':'none';});
+ empty.style.display=visible?'none':'block'; clearBtn.style.display=q?'block':'none';
+}
+input.addEventListener('input',filter); clearBtn.addEventListener('click',()=>{input.value='';filter();input.focus();});
+</script></body></html>
