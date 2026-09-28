@@ -961,7 +961,7 @@ body{background:#fffdfd}
   </div>
 </section>
 
-<section class="section" id="atendimento"><div class="wrap"><div class="eyebrow">Atendimentos</div><h2>Atendimento pediátrico particular</h2><p class="intro">Atendimento particular para bebês, crianças e adolescentes, com escuta, orientação à família e acompanhamento individualizado.</p><div class="cards"><article class="card" style="border:2px solid #e8bfd1;box-shadow:0 14px 38px rgba(157,66,107,.10)"><div class="eyebrow" style="margin-bottom:8px">Principal</div><h3>Consulta presencial</h3><p>No Consultório Criarinfâncias, em Joinville.</p><div class="price">R$ 400</div><a class="btn secondary conversion-presencial" href="https://wa.me/554730710191?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20consulta%20pedi%C3%A1trica%20presencial%20no%20Consult%C3%B3rio%20Criarinf%C3%A2ncias." target="_blank" rel="noopener">Agendar consulta presencial</a></article><article class="card"><h3>Teleconsulta</h3><p>Atendimento pediátrico on-line, conforme adequação do atendimento.</p><div class="price">R$ 200</div><a class="btn secondary conversion-online" href="https://wa.me/5547988906263?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20uma%20teleconsulta%20pedi%C3%A1trica." target="_blank" rel="noopener">Agendar teleconsulta</a></article><article class="card"><h3>Atendimento domiciliar</h3><p>Atendimento em domicílio, mediante disponibilidade e confirmação prévia.</p>
+<section class="section" id="atendimento"><div class="wrap"><div class="eyebrow">Atendimentos</div><h2>Atendimento pediátrico particular</h2><p class="intro">Atendimento particular para bebês, crianças e adolescentes, com escuta, orientação à família e acompanhamento individualizado.</p><div class="cards"><article class="card" style="border:2px solid #e8bfd1;box-shadow:0 14px 38px rgba(157,66,107,.10)"><div class="eyebrow" style="margin-bottom:8px">Principal</div><h3>Consulta presencial</h3><p>No Consultório Criarinfâncias, em Joinville.</p><div class="price">R$ 400</div><a class="btn secondary conversion-presencial" href="https://wa.me/554730710191?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20consulta%20pedi%C3%A1trica%20presencial%20no%20Consult%C3%B3rio%20Criarinf%C3%A2ncias." target="_blank" rel="noopener">Agendar consulta presencial</a></article><article class="card"><h3>Teleconsulta</h3><p>Atendimento pediátrico on-line, conforme adequação do atendimento.</p><div class="price">R$ 200</div><a class="btn secondary conversion-online teleconsulta-prelink" href="/pre-atendimento-teleconsulta.html">Agendar teleconsulta</a></article><article class="card"><h3>Atendimento domiciliar</h3><p>Atendimento em domicílio, mediante disponibilidade e confirmação prévia.</p>
 <div class="service-location-note"><span aria-hidden="true">⌖</span> Atendimento exclusivo em Joinville</div><div class="price">R$ 500</div><a class="btn secondary conversion-domiciliar" href="https://wa.me/5547988906263?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20pedi%C3%A1trico%20domiciliar." target="_blank" rel="noopener">Solicitar domiciliar</a></article></div></div></section>
 <section class="section acompanhamento" id="acompanhamento">
   <div class="wrap">
@@ -1114,4 +1114,22 @@ document.querySelectorAll('.conversion-presencial').forEach(function(link) {
 </script>
 <button class="back-to-top" id="backToTop" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
 <script>(function(){const b=document.getElementById('backToTop');const u=()=>b.classList.toggle('is-visible',scrollY>500);addEventListener('scroll',u,{passive:true});b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));u()})();</script>
+
+<script id="teleconsulta-origem-campanha">
+(function(){
+  var link = document.querySelector('.teleconsulta-prelink');
+  if(!link) return;
+  link.addEventListener('click', function(){
+    var current = new URLSearchParams(window.location.search);
+    var keep = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid'];
+    var target = new URL(link.getAttribute('href'), window.location.origin);
+    keep.forEach(function(k){
+      var v = current.get(k);
+      if(v) target.searchParams.set(k, v);
+    });
+    link.href = target.pathname + target.search;
+  });
+})();
+</script>
+
 </body></html>
