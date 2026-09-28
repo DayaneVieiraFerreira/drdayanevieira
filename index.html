@@ -86,6 +86,20 @@ function gtag_report_conversion(url) {
   color:var(--wine);background:#fff;-webkit-tap-highlight-color:transparent;
 }
 
+
+/* Estabilidade horizontal: impede deslocamento lateral da página */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, svg, video, iframe {
+  max-width: 100%;
+}
+
 </style>
 
 <style id="premium-v2">
