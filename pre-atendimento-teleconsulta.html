@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pré-atendimento da Teleconsulta | Dra. Dayane Vieira</title>
+<meta name="description" content="Pré-atendimento para teleconsulta pediátrica com a Dra. Dayane Vieira.">
+<style>
+:root{--ink:#29313a;--muted:#66717b;--rose:#9d426b;--rose2:#f7edf2;--cream:#fffaf6;--line:#eadfe4;--green:#197a59;--shadow:0 16px 45px rgba(41,49,58,.10)}
+*{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--cream),#fff 55%,var(--rose2));line-height:1.55}a{text-decoration:none;color:inherit}.wrap{width:min(760px,calc(100% - 32px));margin:auto}.top{padding:18px 0;border-bottom:1px solid #f1e8ec;background:rgba(255,255,255,.96)}.brand{font-weight:800}.brand small{display:block;font-weight:500;color:var(--muted);font-size:12px}.main{padding:48px 0 70px}.eyebrow{color:var(--rose);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:13px}.steps{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:13px;font-weight:800;color:var(--muted)}.steps span{padding:8px 12px;border-radius:999px;background:#f5f1f3}.steps .active{background:var(--rose2);color:var(--rose)}.card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow)}h1{font-size:clamp(32px,6vw,48px);line-height:1.05;letter-spacing:-.04em;margin:10px 0 12px}.lead{color:var(--muted);font-size:17px;margin:0 0 26px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin-bottom:17px}.field.full{grid-column:1/-1}label{display:block;font-weight:750;margin-bottom:7px}input,select,textarea{width:100%;border:1px solid #d9cbd1;border-radius:14px;padding:13px 14px;font:inherit;color:var(--ink);background:#fff;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(157,66,107,.10)}textarea{min-height:92px;resize:vertical}.hint{font-size:12px;color:var(--muted);margin-top:6px}.consent{display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:14px;background:#fbf7f9;font-size:13px;color:#56606a;margin:4px 0 20px}.consent input{width:auto;margin-top:4px}.btn{width:100%;border:0;border-radius:999px;padding:15px 20px;background:var(--green);color:#fff;font-weight:800;font-size:16px;cursor:pointer}.notice{margin-top:18px;padding:14px 16px;border-left:3px solid var(--rose);background:#fff7fa;color:#5f5660;font-size:13px}.back{display:inline-block;margin-top:20px;color:var(--rose);font-weight:750}.privacy{font-size:12px;color:var(--muted);margin-top:14px;text-align:center}@media(max-width:650px){.main{padding-top:30px}.card{padding:24px 18px;border-radius:22px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="brand">Dra. Dayane Vieira<small>Médica Pediatra • CRM-SC 33696 | RQE 22827</small></div></div></header>
+<main class="main"><div class="wrap"><div class="eyebrow">Teleconsulta pediátrica</div><h1>Pré-atendimento</h1><p class="lead">Preencha apenas as informações básicas abaixo. Leva menos de 1 minuto e, ao final, o WhatsApp será aberto com a mensagem organizada.</p>
+<section class="card">
+<div class="steps" aria-label="Etapas do pré-atendimento"><span class="active">1. Dados básicos</span><span>2. WhatsApp</span></div>
+<form id="teleForm">
+<div class="grid">
+<div class="field full"><label for="responsavel">Nome do responsável *</label><input id="responsavel" name="responsavel" autocomplete="name" required></div>
+<div class="field"><label for="crianca">Nome da criança/adolescente *</label><input id="crianca" name="crianca" required></div>
+<div class="field"><label for="nascimento">Data de nascimento *</label><input id="nascimento" name="nascimento" type="date" required></div>
+<div class="field"><label for="cidade">Cidade *</label><input id="cidade" name="cidade" value="Joinville" required></div>
+<div class="field"><label for="uf">UF *</label><select id="uf" name="uf" required><option value="SC" selected>SC</option><option value="PR">PR</option><option value="RS">RS</option><option value="SP">SP</option><option value="RJ">RJ</option><option value="MG">MG</option><option value="ES">ES</option><option value="Outro">Outro</option></select></div>
+<div class="field full"><label for="primeira">É a primeira consulta com a Dra. Dayane? *</label><select id="primeira" name="primeira" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select></div>
+<div class="field full"><label for="motivo">Motivo breve da consulta *</label><textarea id="motivo" name="motivo" maxlength="200" placeholder="Descreva em poucas palavras o motivo do atendimento." required></textarea><div class="hint"><span id="contador">0</span>/200 caracteres. Evite enviar exames, documentos ou histórico médico detalhado nesta etapa.</div></div>
+</div>
+<label class="consent"><input type="checkbox" id="consent" required><span>Concordo com o uso destas informações exclusivamente para organizar minha solicitação de atendimento e com o encaminhamento dos dados preenchidos pelo WhatsApp.</span></label>
+<button class="btn" type="submit">Continuar pelo WhatsApp</button>
+<div class="privacy">Os dados digitados nesta página não são armazenados pelo site; eles serão inseridos na mensagem que você decidir enviar pelo WhatsApp.</div>
+</form>
+<div class="notice"><strong>Importante:</strong> este pré-atendimento é destinado a agendamentos e não substitui atendimento de urgência ou emergência. Em situações urgentes, procure um serviço de atendimento adequado.</div>
+<a class="back" href="index.html#atendimento">← Voltar para opções de atendimento</a>
+</section></div></main>
+<script>
+(function(){
+ const form = document.getElementById('teleForm');
+ const motivo = document.getElementById('motivo');
+ const contador = document.getElementById('contador');
+ motivo.addEventListener('input', function(){ contador.textContent = motivo.value.length; });
+
+ function formatDate(iso){
+   if(!iso) return '';
+   const p = iso.split('-');
+   return p.length === 3 ? p[2]+'/'+p[1]+'/'+p[0] : iso;
+ }
+
+ function origem(){
+   const p = new URLSearchParams(window.location.search);
+   const source = p.get('utm_source');
+   const medium = p.get('utm_medium');
+   const campaign = p.get('utm_campaign');
+   if(source || medium || campaign){
+     return [source, medium, campaign].filter(Boolean).join(' / ');
+   }
+   if(document.referrer){
+     try { return new URL(document.referrer).hostname.replace(/^www\./,''); } catch(e){}
+   }
+   return 'Site';
+ }
+
+ form.addEventListener('submit', function(e){
+   e.preventDefault();
+   if(!form.reportValidity()) return;
+
+   const g=id=>document.getElementById(id).value.trim();
+   const msg=[
+     'Olá! Gostaria de agendar uma teleconsulta pediátrica com a Dra. Dayane Vieira.',
+     '',
+     'Origem: '+origem()+' — Teleconsulta',
+     'Responsável: '+g('responsavel'),
+     'Criança/adolescente: '+g('crianca'),
+     'Data de nascimento: '+formatDate(g('nascimento')),
+     'Cidade/UF: '+g('cidade')+'/'+g('uf'),
+     'Primeira consulta: '+g('primeira'),
+     'Motivo breve: '+g('motivo')
+   ].join('
+');
+
+   window.dataLayer = window.dataLayer || [];
+   window.dataLayer.push({
+     event: 'teleconsulta_whatsapp',
+     atendimento: 'teleconsulta',
+     origem: origem()
+   });
+
+   const url='https://wa.me/5547988906263?text='+encodeURIComponent(msg);
+   window.location.href=url;
+ });
+})();
+</script>
+</body></html>
