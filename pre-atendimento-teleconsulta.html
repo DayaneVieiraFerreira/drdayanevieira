@@ -32,59 +32,54 @@
 <a class="back" href="/#atendimento">← Voltar para opções de atendimento</a>
 </section></div></main>
 <script>
-(function(){
- const form = document.getElementById('teleForm');
- const motivo = document.getElementById('motivo');
- const contador = document.getElementById('contador');
- motivo.addEventListener('input', function(){ contador.textContent = motivo.value.length; });
+(function () {
+  var form = document.getElementById("teleForm");
+  var motivo = document.getElementById("motivo");
+  var contador = document.getElementById("contador");
 
- function formatDate(iso){
-   if(!iso) return '';
-   const p = iso.split('-');
-   return p.length === 3 ? p[2]+'/'+p[1]+'/'+p[0] : iso;
- }
+  if (motivo && contador) {
+    motivo.addEventListener("input", function () {
+      contador.textContent = motivo.value.length;
+    });
+  }
 
- function origem(){
-   const p = new URLSearchParams(window.location.search);
-   const source = p.get('utm_source');
-   const medium = p.get('utm_medium');
-   const campaign = p.get('utm_campaign');
-   if(source || medium || campaign){
-     return [source, medium, campaign].filter(Boolean).join(' / ');
-   }
-   if(document.referrer){
-     try { return new URL(document.referrer).hostname.replace(/^www\./,''); } catch(e){}
-   }
-   return 'Site';
- }
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
- form.addEventListener('submit', function(e){
-   e.preventDefault();
-   if(!form.reportValidity()) return;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-   const g=id=>document.getElementById(id).value.trim();
-   const msg=[
-     'Olá! Gostaria de agendar uma teleconsulta pediátrica com a Dra. Dayane Vieira.',
-     '',
-     'Origem: '+origem()+' — Teleconsulta',
-     'Responsável: '+g('responsavel'),
-     'Criança/adolescente: '+g('crianca'),
-     'Data de nascimento: '+formatDate(g('nascimento')),
-     'Cidade/UF: '+g('cidade')+'/'+g('uf'),
-     'Primeira consulta: '+g('primeira'),
-     'Motivo breve: '+g('motivo')
-   ].join('\\n');
+    function valor(id) {
+      var el = document.getElementById(id);
+      return el ? el.value : "";
+    }
 
-   window.dataLayer = window.dataLayer || [];
-   window.dataLayer.push({
-     event: 'teleconsulta_whatsapp',
-     atendimento: 'teleconsulta',
-     origem: origem()
-   });
+    var nascimento = valor("nascimento");
+    if (nascimento) {
+      var partes = nascimento.split("-");
+      if (partes.length === 3) {
+        nascimento = partes[2] + "/" + partes[1] + "/" + partes[0];
+      }
+    }
 
-   const url='https://wa.me/5547988906263?text='+encodeURIComponent(msg);
-   window.location.href=url;
- });
+    var mensagem =
+      "Olá! Gostaria de agendar uma teleconsulta pediátrica com a Dra. Dayane Vieira.\n\n" +
+      "Origem: Site — Teleconsulta\n" +
+      "Responsável: " + valor("responsavel") + "\n" +
+      "Criança/adolescente: " + valor("crianca") + "\n" +
+      "Data de nascimento: " + nascimento + "\n" +
+      "Cidade/UF: " + valor("cidade") + "/" + valor("uf") + "\n" +
+      "Primeira consulta: " + valor("primeira") + "\n" +
+      "Motivo breve: " + valor("motivo");
+
+    var destino =
+      "https://api.whatsapp.com/send?phone=5547988906263&text=" +
+      encodeURIComponent(mensagem);
+
+    window.location.assign(destino);
+  });
 })();
 </script>
 </body></html>
