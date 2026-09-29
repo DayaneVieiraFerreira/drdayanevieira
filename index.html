@@ -1089,7 +1089,36 @@ body{background:#fffdfd}
 </section>
 
 <footer class="footer"><div class="wrap">Médica Pediatra • CRM-SC 33696 | RQE 22827<br>Informações desta página não substituem avaliação médica. Em situações de urgência ou emergência, procure um serviço de atendimento adequado.</div></footer>
-<!-- Rastreamento preparado por classes: conversion-presencial, conversion-online e conversion-domiciliar. Inserir Google tag/Google Ads após criar as ações de conversão. -->
+<!-- Conversão Google Ads: clique no WhatsApp para consulta presencial -->
+<script>
+(function () {
+  var SEND_TO = 'AW-18483010177/VBxJCJms2o0dEIG1se1E';
+
+  document.querySelectorAll('a.conversion-presencial').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      var url = link.href;
+
+      if (typeof gtag !== 'function') return;
+
+      event.preventDefault();
+
+      var opened = false;
+      var openWhatsApp = function () {
+        if (opened) return;
+        opened = true;
+        window.open(url, '_blank', 'noopener');
+      };
+
+      gtag('event', 'conversion', {
+        'send_to': SEND_TO,
+        'event_callback': openWhatsApp
+      });
+
+      setTimeout(openWhatsApp, 800);
+    });
+  });
+})();
+</script>
 <button class="back-to-top" id="backToTop" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
 <script>(function(){const b=document.getElementById('backToTop');const u=()=>b.classList.toggle('is-visible',scrollY>500);addEventListener('scroll',u,{passive:true});b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));u()})();</script>
 </body></html>
