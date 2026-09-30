@@ -967,8 +967,8 @@ body{background:#fffdfd}
   </div>
 </section>
 
-<section class="section" id="atendimento"><div class="wrap"><div class="eyebrow">Atendimentos</div><h2>Atendimento pediátrico particular</h2><p class="intro">Atendimento particular para bebês, crianças e adolescentes, com escuta, orientação à família e acompanhamento individualizado.</p><div class="cards"><article class="card" style="border:2px solid #e8bfd1;box-shadow:0 14px 38px rgba(157,66,107,.10)"><div class="eyebrow" style="margin-bottom:8px">Principal</div><h3>Consulta presencial</h3><p>No Consultório Criarinfâncias, em Joinville.</p><div class="price">R$ 400</div><a class="btn secondary conversion-presencial" href="https://wa.me/554730710191?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20consulta%20pedi%C3%A1trica%20presencial%20no%20Consult%C3%B3rio%20Criarinf%C3%A2ncias." target="_blank" rel="noopener">Agendar consulta presencial</a></article><article class="card"><h3>Teleconsulta</h3><p>A teleconsulta está disponível por R$ 200. Dependendo da necessidade da criança, poderá ser indicada uma avaliação presencial.</p><div class="price">R$ 200</div><a class="btn secondary conversion-online" href="https://wa.me/5547988906263?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20uma%20teleconsulta%20pedi%C3%A1trica." target="_blank" rel="noopener">Agendar teleconsulta</a></article><article class="card"><h3>Atendimento domiciliar</h3><p>O atendimento domiciliar é exclusivo para Joinville, mediante disponibilidade e confirmação prévia. O valor é R$ 500.</p>
-<div class="service-location-note"><span aria-hidden="true">⌖</span> Atendimento exclusivo em Joinville</div><div class="price">R$ 500</div><a class="btn secondary conversion-domiciliar" href="https://wa.me/5547988906263?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20pedi%C3%A1trico%20domiciliar." target="_blank" rel="noopener">Solicitar domiciliar</a></article></div></div></section>
+<section class="section" id="atendimento"><div class="wrap"><div class="eyebrow">Atendimentos</div><h2>Atendimento pediátrico particular</h2><p class="intro">Atendimento particular para bebês, crianças e adolescentes, com escuta, orientação à família e acompanhamento individualizado.</p><div class="cards"><article class="card" style="border:2px solid #e8bfd1;box-shadow:0 14px 38px rgba(157,66,107,.10)"><div class="eyebrow" style="margin-bottom:8px">Principal</div><h3>Consulta presencial</h3><p>No Consultório Criarinfâncias, em Joinville.</p><div class="price">R$ 400</div><a class="btn secondary conversion-presencial" href="https://wa.me/554730710191?text=Ol%C3%A1%21%20Encontrei%20a%20Dra.%20Dayane%20pelo%20Google%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20para%20agendar%20uma%20consulta%20pedi%C3%A1trica%20presencial%20no%20Consult%C3%B3rio%20Criarinf%C3%A2ncias." target="_blank" rel="noopener">Agendar consulta presencial</a></article><article class="card"><h3>Teleconsulta</h3><p>A teleconsulta está disponível por R$ 200. Dependendo da necessidade da criança, poderá ser indicada uma avaliação presencial.</p><div class="price">R$ 200</div><button class="btn secondary service-form-trigger conversion-online" type="button" data-service="teleconsulta">Agendar teleconsulta</button></article><article class="card"><h3>Atendimento domiciliar</h3><p>O atendimento domiciliar é exclusivo para Joinville, mediante disponibilidade e confirmação prévia. O valor é R$ 500.</p>
+<div class="service-location-note"><span aria-hidden="true">⌖</span> Atendimento exclusivo em Joinville</div><div class="price">R$ 500</div><button class="btn secondary service-form-trigger conversion-domiciliar" type="button" data-service="domiciliar">Solicitar domiciliar</button></article></div></div></section>
 <section class="section acompanhamento" id="acompanhamento">
   <div class="wrap">
     <div class="acompanhamento-head">
@@ -1141,4 +1141,62 @@ body{background:#fffdfd}
 </script>
 <button class="back-to-top" id="backToTop" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
 <script>(function(){const b=document.getElementById('backToTop');const u=()=>b.classList.toggle('is-visible',scrollY>500);addEventListener('scroll',u,{passive:true});b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));u()})();</script>
+
+<style id="service-form-modal-styles">
+.service-form-trigger{font:inherit;cursor:pointer;width:100%}
+.service-form-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(43,31,37,.58);backdrop-filter:blur(4px)}
+.service-form-modal.is-open{display:flex}
+.service-form-dialog{width:min(620px,100%);max-height:92vh;overflow:auto;background:#fffdfb;border:1px solid #eddde4;border-radius:26px;box-shadow:0 28px 80px rgba(48,36,42,.24);padding:28px}
+.service-form-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.service-form-head h2{font-size:26px;margin:3px 0 6px;color:#30242a}.service-form-head p{margin:0;color:#75676e;font-size:14px;line-height:1.55}
+.service-form-close{border:0;background:#f8eef2;color:#652640;width:38px;height:38px;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;flex:0 0 auto}
+.service-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.service-form-field{display:flex;flex-direction:column;gap:6px}.service-form-field.full{grid-column:1/-1}
+.service-form-field label{font-size:13px;font-weight:700;color:#4a3941}.service-form-field input,.service-form-field textarea{width:100%;box-sizing:border-box;border:1px solid #dfd0d6;border-radius:13px;background:#fff;padding:12px 13px;color:#30242a;font:inherit;outline:none}.service-form-field input:focus,.service-form-field textarea:focus{border-color:#984064;box-shadow:0 0 0 3px rgba(152,64,100,.10)}
+.service-form-field textarea{min-height:86px;resize:vertical}.service-form-note{font-size:12px;color:#7c6c74;line-height:1.5;margin:14px 0}.service-form-submit{width:100%;border:0;cursor:pointer}
+.service-form-address{display:none}.service-form-modal[data-service="domiciliar"] .service-form-address{display:flex}
+@media(max-width:620px){.service-form-modal{padding:10px;align-items:flex-end}.service-form-dialog{border-radius:24px 24px 18px 18px;padding:22px 18px;max-height:94vh}.service-form-grid{grid-template-columns:1fr}.service-form-field.full{grid-column:auto}.service-form-head h2{font-size:22px}}
+</style>
+<div class="service-form-modal" id="serviceFormModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="serviceFormTitle">
+  <div class="service-form-dialog">
+    <div class="service-form-head"><div><div class="eyebrow">Informações para atendimento</div><h2 id="serviceFormTitle">Ficha básica</h2><p id="serviceFormSubtitle">Preencha os dados abaixo para continuar pelo WhatsApp.</p></div><button class="service-form-close" type="button" aria-label="Fechar formulário">×</button></div>
+    <form id="serviceForm">
+      <div class="service-form-grid">
+        <div class="service-form-field"><label for="sfResponsavel">Nome do responsável *</label><input id="sfResponsavel" name="responsavel" autocomplete="name" required></div>
+        <div class="service-form-field"><label for="sfCrianca">Nome da criança *</label><input id="sfCrianca" name="crianca" required></div>
+        <div class="service-form-field"><label for="sfNascimento">Data de nascimento / idade *</label><input id="sfNascimento" name="nascimento" placeholder="Ex.: 12/03/2022 ou 4 anos" required></div>
+        <div class="service-form-field"><label for="sfTelefone">Telefone para contato *</label><input id="sfTelefone" name="telefone" type="tel" autocomplete="tel" placeholder="(47) 99999-9999" required></div>
+        <div class="service-form-field full"><label for="sfCidade">Cidade e bairro *</label><input id="sfCidade" name="cidade" placeholder="Ex.: Joinville — Saguaçu" required></div>
+        <div class="service-form-field full service-form-address"><label for="sfEndereco">Endereço do atendimento *</label><input id="sfEndereco" name="endereco" autocomplete="street-address" placeholder="Rua, número e complemento"></div>
+        <div class="service-form-field full"><label for="sfMotivo">Motivo da consulta *</label><textarea id="sfMotivo" name="motivo" placeholder="Conte brevemente o motivo do atendimento" required></textarea></div>
+      </div>
+      <p class="service-form-note">Essas informações não ficam armazenadas nesta página. Ao continuar, elas serão usadas apenas para montar a mensagem que será aberta no WhatsApp.</p>
+      <button class="btn service-form-submit" type="submit">Continuar no WhatsApp</button>
+    </form>
+  </div>
+</div>
+<script id="service-form-modal-script">
+(function(){
+  var modal=document.getElementById('serviceFormModal'), form=document.getElementById('serviceForm'), title=document.getElementById('serviceFormTitle'), subtitle=document.getElementById('serviceFormSubtitle'), address=document.getElementById('sfEndereco'), lastTrigger=null;
+  if(!modal||!form)return;
+  function openForm(trigger){
+    var service=trigger.getAttribute('data-service'); lastTrigger=trigger; modal.setAttribute('data-service',service); modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; form.reset();
+    if(service==='domiciliar'){title.textContent='Ficha — Atendimento domiciliar';subtitle.textContent='Atendimento exclusivo para Joinville, mediante disponibilidade e confirmação prévia.';address.required=true;}else{title.textContent='Ficha — Teleconsulta';subtitle.textContent='Preencha os dados básicos para solicitar a teleconsulta.';address.required=false;}
+    setTimeout(function(){document.getElementById('sfResponsavel').focus();},50);
+  }
+  function closeForm(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastTrigger)lastTrigger.focus();}
+  document.querySelectorAll('.service-form-trigger').forEach(function(b){b.addEventListener('click',function(){openForm(b);});});
+  modal.querySelector('.service-form-close').addEventListener('click',closeForm);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeForm();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('is-open'))closeForm();});
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); var service=modal.getAttribute('data-service'); var d=new FormData(form); var label=service==='domiciliar'?'ATENDIMENTO DOMICILIAR':'TELECONSULTA';
+    var lines=['Olá! Encontrei a Dra. Dayane pelo site e gostaria de solicitar '+(service==='domiciliar'?'um atendimento domiciliar.':'uma teleconsulta pediátrica.'),'','*Ficha básica — '+label+'*','Responsável: '+d.get('responsavel'),'Criança: '+d.get('crianca'),'Data de nascimento / idade: '+d.get('nascimento'),'Telefone: '+d.get('telefone'),'Cidade / bairro: '+d.get('cidade')];
+    if(service==='domiciliar')lines.push('Endereço: '+d.get('endereco'));
+    lines.push('Motivo da consulta: '+d.get('motivo'));
+    window.open('https://wa.me/5547988906263?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener'); closeForm();
+  });
+})();
+</script>
+
 </body></html>
